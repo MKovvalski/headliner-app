@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
 
-import toReadList from './toReadList'
-import headlinersList from './headlinersList'
+import headliners from './headliners'
+import toReads from './toReads'
 
 export default combineReducers({
-  headliners: headlinersList,
-  toRead: toReadList
+  headliners,
+  toReads
 })

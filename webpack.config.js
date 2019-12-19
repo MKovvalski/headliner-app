@@ -60,7 +60,7 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'sass-loader']
       },
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx)$/, // add ts and tsx
         include: path.resolve(paths.appSrc),
         exclude: /(node_modules)/,
         use: ['babel-loader']
