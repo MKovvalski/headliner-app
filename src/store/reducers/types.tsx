@@ -1,3 +1,4 @@
-export interface StoreState {}
-export interface ListReducer {}
-export interface ToReadReducer {}
+export interface StoreStateInterface {
+  totalResults: number
+  headliners: object[] | null
+}

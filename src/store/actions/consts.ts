@@ -1,0 +1,3 @@
+export const GET_HEADLINERS: string = 'GET_HEADLINERS'
+export const APPEND_HEADLINERS: string = 'APPEND_HEADLINERS'
+export const REFRESH_HEADLINERS: string = 'REFRESH_HEADLINERS'
