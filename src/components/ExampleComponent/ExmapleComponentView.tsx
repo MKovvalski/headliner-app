@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export type ExampleComponentProps = {
+export interface ExampleComponentProps {
   title: string,
   description: string
 }

@@ -8,7 +8,7 @@ const App = () => {
         title='I am ExampleComponent'
         description='I am its description'
       />
-      Aloha and welcome to React SPA spark!
+      Aloha and welcome to The Headliner app
     </div>
   )
 }
