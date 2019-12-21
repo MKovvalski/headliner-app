@@ -1,11 +1,13 @@
-export interface HeadlinersStoreStateInterface {
+import { ENTRY_headliner } from '../actions/toReads/types';
+
+export interface ENTRY_headlinersStore {
   totalResults: number
-  headliners: object[] | null
+  headliners: ENTRY_headliner[] | null
 }
 
-export interface ToReadsStoreStateInterface {
+export interface ENTRY_toReadsStore {
   totalResults: number,
   beenReads: number,
   toDeletes: number,
-  toReads: object[] | null
+  toReads: ENTRY_headliner[] | null
 }

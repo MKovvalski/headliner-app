@@ -1,11 +1,12 @@
 import {
-  ToReadsPayloadInterface,
-  ToReadsActionResult,
-  AddHeadlinerResult,
-  RemoveHeadlinerResult,
-  ChangeHeadlinerStatus,
-  RemoveHeadliner,
-  ChangeHeadlinerResult
+  ENTRY_toReads,
+  ENTRY_headliner,
+  ENTRY_modifyHeadliner,
+  ENTRY_removeHeadliner,
+  OUTPUT_getToReads,
+  OUTPUT_addHeadliner,
+  OUTPUT_removeHeadliner,
+  OUTPUT_modifyHeadliner,
 } from './types'
 
 import {
@@ -15,22 +16,22 @@ import {
   CHANGE_HEADLINER_STATUS
 } from '../consts'
 
-export const getToReads = (payload: ToReadsPayloadInterface): ToReadsActionResult => ({
+export const getToReads = (payload: ENTRY_toReads): OUTPUT_getToReads => ({
   type: GET_TO_READ_LIST,
   payload
 })
 
-export const addHeadlinerToList = (payload: object): AddHeadlinerResult => ({
+export const addHeadlinerToList = (payload: ENTRY_headliner): OUTPUT_addHeadliner => ({
   type: ADD_HEADLINER_TO_LIST,
   payload
 })
 
-export const removeHeadlinerToList = (payload: RemoveHeadliner): RemoveHeadlinerResult => ({
-  type: REMOVE_HEADLINER_FROM_LIST,
+export const changeHeadlinerStatus = (payload: ENTRY_modifyHeadliner): OUTPUT_modifyHeadliner => ({
+  type: CHANGE_HEADLINER_STATUS,
   payload
 })
 
-export const changeHeadlinerStatus = (payload: ChangeHeadlinerStatus): ChangeHeadlinerResult => ({
-  type: CHANGE_HEADLINER_STATUS,
+export const removeHeadlinerToList = (payload: ENTRY_removeHeadliner): OUTPUT_removeHeadliner => ({
+  type: REMOVE_HEADLINER_FROM_LIST,
   payload
 })
