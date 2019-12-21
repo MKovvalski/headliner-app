@@ -1,18 +1,21 @@
-import { GET_HEADLINERS, APPEND_HEADLINERS, REFRESH_HEADLINERS } from '../../actions/consts'
-import {HeadlinerActionResult } from '../../actions/headliners/types'
-import { HeadlinersStoreStateInterface } from '../types'
+import {
+  GET_HEADLINERS,
+  APPEND_HEADLINERS,
+  REFRESH_HEADLINERS
+} from '../../actions/consts'
+import { OUTPUT_headliners } from '../../actions/headliners/types'
+import { ENTRY_headlinersStore } from '../types'
+import { appendHeadliners } from './reducerMethods'
 
-import { appendHeadliners } from './supportMethods'
-
-const INITIAL_STATE: HeadlinersStoreStateInterface = {
+const INITIAL_STATE: ENTRY_headlinersStore = {
   totalResults: 0,
   headliners: null
 }
 
 const headliners = (
-  state: HeadlinersStoreStateInterface = INITIAL_STATE,
-  { type, payload}: HeadlinerActionResult
-) => {
+  state: ENTRY_headlinersStore = INITIAL_STATE,
+  { type, payload}: OUTPUT_headliners
+): ENTRY_headlinersStore => {
   switch (type) {
     case GET_HEADLINERS:
       return payload
@@ -24,7 +27,7 @@ const headliners = (
       return payload
   }
 
-  return {}
+  return state
 }
 
 export default headliners

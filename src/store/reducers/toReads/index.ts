@@ -4,18 +4,14 @@ import {
   CHANGE_HEADLINER_STATUS,
   REMOVE_HEADLINER_FROM_LIST
 } from '../../actions/consts'
-
-import {ToReadsReducerAction } from '../../actions/toReads/types'
-
-import { ToReadsStoreStateInterface } from '../types'
-
+import { ENTRY_toReadsStore } from '../types'
 import {
   addHeadliner,
-  changeHeadlinerStatus,
+  modifyHeadlinerStatus,
   removeHeadlinerFromList
-} from './supportMethods'
+} from './reducerMethods'
 
-const INITIAL_STATE: ToReadsStoreStateInterface = {
+const INITIAL_STATE: ENTRY_toReadsStore = {
   totalResults: 0,
   beenReads: 0,
   toDeletes: 0,
@@ -23,9 +19,9 @@ const INITIAL_STATE: ToReadsStoreStateInterface = {
 }
 
 const toReads = (
-  state: ToReadsStoreStateInterface = INITIAL_STATE,
-  { type, payload}: ToReadsReducerAction
-) => {
+  state: ENTRY_toReadsStore = INITIAL_STATE,
+  { type, payload }: any
+): ENTRY_toReadsStore  => {
   switch (type) {
     case GET_TO_READ_LIST:
       return payload
@@ -34,12 +30,13 @@ const toReads = (
       return addHeadliner(state, payload)
 
     case CHANGE_HEADLINER_STATUS:
-      return changeHeadlinerStatus(state, payload)
+      return modifyHeadlinerStatus(state, payload)
 
     case REMOVE_HEADLINER_FROM_LIST:
       return removeHeadlinerFromList(state, payload)
 
   }
+
   return state
 }
 

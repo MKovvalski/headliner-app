@@ -1,4 +1,4 @@
-import { HeadlinerStatus } from './headliners/types'
+import { ENTRY_headlinerStatus } from './headliners/types'
 
 // headliners list action names
 export const GET_HEADLINERS: string = 'GET_HEADLINERS'
@@ -11,7 +11,7 @@ export const ADD_HEADLINER_TO_LIST: string = 'ADD_HEADLINER_TO_LIST'
 export const REMOVE_HEADLINER_FROM_LIST: string = 'REMOVE_HEADLINER_FROM_LIST'
 export const CHANGE_HEADLINER_STATUS: string = 'CHANGE_HEADLINER_STATUS'
 
-export const HEADLINER_STATUSES: HeadlinerStatus = {
+export const HEADLINER_STATUSES: ENTRY_headlinerStatus = {
   toRead: 0,
   beenRead: 1,
   toDelete: 2,

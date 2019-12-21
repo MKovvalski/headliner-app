@@ -1,22 +1,19 @@
-// entries
-export interface Headliner {
-  title: string,
-  status: number
-}
+import { ENTRY_headliner } from '../toReads/types'
 
-export interface HeadlinerStatus {
+// entries
+export interface ENTRY_headlinerStatus {
   toRead: number,
   beenRead: number,
   toDelete: number
 }
 
-export interface HeadlinerPayloadInterface {
+export interface ENTRY_headliners {
   totalResults: number
-  headliners: Headliner[] | null
+  headliners: ENTRY_headliner[] | null
 }
 
 // outputs
-export interface HeadlinerActionResult {
+export interface OUTPUT_headliners {
   type: string,
-  payload: HeadlinerPayloadInterface
+  payload: ENTRY_headliners
 }
