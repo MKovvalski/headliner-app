@@ -1,4 +1,4 @@
-import { ENTRY_headliner } from '../actions/toReads/types';
+import { ENTRY_headliner } from '../actions/headliners/types'
 
 export interface ENTRY_headlinersStore {
   totalResults: number

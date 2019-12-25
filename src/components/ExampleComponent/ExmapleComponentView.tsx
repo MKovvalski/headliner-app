@@ -1,4 +1,8 @@
 import React, { useState } from 'react'
+import { apiCall } from '../../utils/api/api'
+import { formatResponseData } from "../../utils/api/helpers"
+import { exampleRequest } from "../../utils/api/FAKE_data";
+import { ENTRY_ResponseSuccess } from "../../utils/api/types";
 
 export interface ExampleComponentProps {
   title: string,
@@ -9,9 +13,11 @@ const ExampleComponent = ({ title, description }: ExampleComponentProps) => {
 
   const [count, setCount] = useState(0)
 
-  // TODO: add state test
-  // add base methods for shallow and so forth
-  // test conditional rendering
+  // const a  = apiCall({ country: 'us' })
+  //   .then(({ data }: any) => {
+  //     console.log(data)
+  //     console.log(formatResponseData(data))
+  //   })
   return (
     <div className='example-component-class'>
       <h2>{title}</h2>

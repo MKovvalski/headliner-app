@@ -2,7 +2,9 @@ import produce from 'immer'
 
 import { ENTRY_toReadsStore } from '../types'
 import {
-  ENTRY_headliner,
+  ENTRY_headliner
+} from '../../actions/headliners/types'
+import {
   ENTRY_modifyHeadliner,
   ENTRY_removeHeadliner
 } from '../../actions/toReads/types'

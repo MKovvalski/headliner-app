@@ -1,11 +1,6 @@
+import { ENTRY_headliner, StatusRange } from '../headliners/types'
+
 // entries
-type StatusRange = 0 | 1 | 2
-
-export interface ENTRY_headliner {
-  title: string,
-  status: StatusRange,
-}
-
 export interface ENTRY_toReads {
   totalResults: number
   beenReads: string,
