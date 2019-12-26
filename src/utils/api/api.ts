@@ -1,8 +1,7 @@
 import axios from 'axios'
+import { API_KEY, API_URL } from '../../../config'
 import { CallParameters, CategoriesObject } from './types'
 
-const API_KEY: string = 'b88bcd6cb83d4335ba3dbfd7227a1c07'
-const API_URL: string = 'https://newsapi.org/v2/top-headlines'
 
 const CATEGORIES: CategoriesObject = {
   business: 'business',
@@ -23,7 +22,7 @@ const defaultRequestConfig: any = {
 }
 
 export const apiCall = (params: CallParameters) =>
-  axios({
+  axios ({
     ...defaultRequestConfig,
     params
   })
