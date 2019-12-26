@@ -2,7 +2,11 @@ import {
   ENTRY_headliners,
   OUTPUT_headliners,
 } from './types'
-import { GET_HEADLINERS, APPEND_HEADLINERS, REFRESH_HEADLINERS } from '../consts'
+import {
+  GET_HEADLINERS,
+  APPEND_HEADLINERS,
+  REFRESH_HEADLINERS
+} from '../consts'
 
 export const getHeadliners = (payload: ENTRY_headliners): OUTPUT_headliners => ({
   type: GET_HEADLINERS,

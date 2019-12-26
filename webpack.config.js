@@ -40,7 +40,7 @@ module.exports = {
     quiet: false,
     noInfo: true, // hide build info in console
     watchContentBase: true, // reload page if static files change
-    after () {
+    after() {
       chalkAnimation.rainbow(`Its Wednesday my dudes! http://${HOST}:${PORT}\n`, 0.3)
     }
   },

@@ -1,6 +1,6 @@
+import { ENTRY_headliner } from '../headliners/types'
 import {
   ENTRY_toReads,
-  ENTRY_headliner,
   ENTRY_modifyHeadliner,
   ENTRY_removeHeadliner,
   OUTPUT_getToReads,
