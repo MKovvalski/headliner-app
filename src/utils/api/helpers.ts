@@ -1,9 +1,10 @@
 import axios from 'axios'
-import { ENTRY_ResponseSuccess, RequestBuilder } from './types'
+import { ENTRY_HeadlinesResponseSuccess, ENTRY_SourcesResponseSuccess, RequestBuilder } from './types'
 import { ENTRY_headliners } from '../../store/actions/headliners/types'
 
 import { HEADLINER_STATUSES } from '../../store/actions/consts'
 import { API_KEY, API_URL } from '../../../config'
+import { ENTRY_Sources } from '../../store/actions/search/types'
 
 export const buildRequest = ({
   url,
@@ -19,7 +20,7 @@ export const buildRequest = ({
   })
 }
 
-export const formatResponseData = (responsePayload: ENTRY_ResponseSuccess): ENTRY_headliners => {
+export const formatHeadersResponseData = (responsePayload: ENTRY_HeadlinesResponseSuccess): ENTRY_headliners => {
   const { totalResults, articles } = responsePayload
 
   const headliners = articles.map(({
@@ -37,5 +38,12 @@ export const formatResponseData = (responsePayload: ENTRY_ResponseSuccess): ENTR
   return {
     totalResults,
     headliners
+  }
+}
+
+export const formatSourcesResponseData = (responsePayload: ENTRY_SourcesResponseSuccess): ENTRY_Sources => {
+  const { sources }= responsePayload
+  return {
+    sources: sources.map(({ id, name }) => ({ id, name }))
   }
 }

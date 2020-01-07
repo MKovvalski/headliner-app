@@ -1,5 +1,7 @@
 import { StatusRange } from '../../store/actions/headliners/types'
 
+export type RequestStatusRange = 'loading' | 'success' | 'error' | null
+
 export type CategoriesRange =
   'business' |
   'entertainment' |
@@ -73,11 +75,20 @@ export interface ENTRY_UnprocessedHeadliner {
   content?: string
 }
 
+export interface ENTRY_UnprocessedSource {
+  id: string,
+  name: string
+}
+
 export interface ENTRY_RawResponse {
   status: ResponseStatusRange,
 }
 
-export interface ENTRY_ResponseSuccess extends ENTRY_RawResponse {
+export interface ENTRY_HeadlinesResponseSuccess extends ENTRY_RawResponse {
   totalResults: number,
   articles: ENTRY_UnprocessedHeadliner[]
+}
+
+export interface ENTRY_SourcesResponseSuccess extends ENTRY_RawResponse {
+  sources: ENTRY_UnprocessedSource[]
 }

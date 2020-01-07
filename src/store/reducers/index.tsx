@@ -7,5 +7,5 @@ import { RootStore } from '../types'
 export default combineReducers<RootStore>({
   headliners,
   toReads,
-  // search
+  search
 })

@@ -1,18 +1,21 @@
 import React from 'react'
-import { RequestStatusRange } from './ExampleComponentApi'
+import { RequestStatusRange } from '../../utils/api/types'
+import { ENTRY_Source } from '../../store/actions/search/types'
 
 export interface ExampleComponentProps {
   title: string,
   description: string,
   triggerRequest: any,
-  status: RequestStatusRange
+  status: RequestStatusRange,
+  sources: ENTRY_Source[] | null
 }
 
 const ExampleComponent = ({
   title,
   description,
   triggerRequest,
-  status
+  status,
+  sources
 }: ExampleComponentProps) => {
 
   return (
@@ -23,18 +26,14 @@ const ExampleComponent = ({
         className='example-component-class__button'
         onClick={triggerRequest}
       >
-        Ask for articles
+        Ask for Sources
       </div>
       <div>{status}</div>
-      {/*<div onClick={() => {}}>*/}
-      {/*  Change Params*/}
-      {/*</div>*/}
-      {/*<div>{totalResults}</div>*/}
-      {/*<div>*/}
-      {/*  {headliners && headliners.map(({ title }) => (*/}
-      {/*    <div>{title}</div>*/}
-      {/*  ))}*/}
-      {/*</div>*/}
+      <div>
+        {sources && sources.map(({ name }) => (
+          <div>{name}</div>
+        ))}
+      </div>
     </div>
   )
 }

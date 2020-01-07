@@ -20,6 +20,7 @@ export interface ENTRY_removeHeadliner {
 // Action Outputs
 export interface OUTPUT_DefaultAction {
   type: string
+  payload: any
 }
 
 export interface OUTPUT_getToReads extends OUTPUT_DefaultAction {

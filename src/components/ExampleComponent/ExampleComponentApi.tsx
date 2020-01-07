@@ -1,47 +1,40 @@
 import React, { useState } from 'react'
-import { connect, useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { RootStore } from '../../store/types'
-import { SourcesParams } from '../../utils/api/types'
-import { COUNTRIES, CATEGORIES, LANGUAGES} from '../../utils/api/consts'
-import ExampleComponent from './ExmapleComponentView'
 import { requestSources } from '../../utils/api/api'
+import { RequestStatusRange, SourcesParams } from '../../utils/api/types'
+import { COUNTRIES, CATEGORIES, LANGUAGES } from '../../utils/api/consts'
+import { formatSourcesResponseData } from '../../utils/api/helpers'
+import { getSources } from '../../store/actions/search/actions'
+import { ENTRY_Source } from '../../store/actions/search/types'
+import ExampleComponent from './ExmapleComponentView'
 
-export type RequestStatusRange = 'loading' | 'success' | 'error' | null
-
-const connector = connect(({ headliners }: RootStore) => ({
-  headliners
-}))
+const INITIAL_STATE: SourcesParams = {
+  category: CATEGORIES.entertainment,
+  language: LANGUAGES.english,
+  country: COUNTRIES.unitedStates
+}
 
 const ExampleComponentApi = () => {
   const dispatch = useDispatch()
-  const [ parameters, setParams ] = useState<SourcesParams>({
-    category: CATEGORIES.entertainment,
-    language: LANGUAGES.english,
-    country: COUNTRIES.unitedStates
-  })
+  const sources: ENTRY_Source[] | null = useSelector((state: RootStore) => state.search.sources)
+
+  const [ parameters, setParams ] = useState<SourcesParams>(INITIAL_STATE)
   const [ status, updateStatus ] = useState<RequestStatusRange>(null)
 
-
   const requestSourceList = async () => {
-
     try {
       updateStatus('loading')
 
       const { data }: any = await requestSources(parameters)
 
-      console.log(data)
+      const formattedResponse = formatSourcesResponseData(data)
 
-      // TODO: write sanitization method that leaves only name and ID
-      // const formattedResponse = formatResponseData(data)
-
-      // dispatch(getHeadliners(formattedResponse))
+      dispatch(getSources(formattedResponse))
 
       updateStatus('success')
-
     } catch (e) {
-
       updateStatus('error')
-
     }
   }
 
@@ -51,8 +44,9 @@ const ExampleComponentApi = () => {
       description='I show how app basics work'
       triggerRequest={requestSourceList}
       status={status}
+      sources={sources}
     />
   )
 }
 
-export default connector(ExampleComponentApi)
+export default ExampleComponentApi
