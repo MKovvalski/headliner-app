@@ -4,10 +4,7 @@ import ExampleComponent from './ExampleComponent'
 const App = () => {
   return (
     <div className='app-test'>
-      <ExampleComponent
-        title='I am ExampleComponent'
-        description='I am its description'
-      />
+      <ExampleComponent />
       Aloha and welcome to The Headliner app
     </div>
   )

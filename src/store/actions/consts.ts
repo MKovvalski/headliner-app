@@ -16,3 +16,8 @@ export const HEADLINER_STATUSES: ENTRY_headlinerStatus = {
   beenRead: 1,
   toDelete: 2,
 }
+
+// search action names
+export const GET_SOURCES: string = 'GET_SOURCES'
+export const SET_SOURCES: string = 'SET_SOURCES'
+export const SET_PARAMETERS: string = 'SET_PARAMETERS'

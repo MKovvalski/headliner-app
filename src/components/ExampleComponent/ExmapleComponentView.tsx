@@ -1,30 +1,19 @@
-import React, { useState } from 'react'
-import { connect } from 'react-redux'
-import { useAPIRequest } from '../../hooks/useApiRequest'
-import { CallParameters } from '../../utils/api/types'
-import { ENTRY_headliners } from '../../store/actions/headliners/types'
-import { RootStore } from '../../store/types'
+import React from 'react'
+import { RequestStatusRange } from './ExampleComponentApi'
 
 export interface ExampleComponentProps {
   title: string,
   description: string,
-  headliners: ENTRY_headliners
+  triggerRequest: any,
+  status: RequestStatusRange
 }
-
-const connector = connect(({ headliners }: RootStore) => ({
-  headliners
-}))
 
 const ExampleComponent = ({
   title,
   description,
-  headliners: { totalResults, headliners },
-  ...rest
+  triggerRequest,
+  status
 }: ExampleComponentProps) => {
-
-  const [ parameters, setParams ] = useState<CallParameters>({ category: 'health', country: 'us' })
-
-  const { status, triggerRequest } = useAPIRequest(parameters)
 
   return (
     <div className='example-component-class'>
@@ -37,17 +26,17 @@ const ExampleComponent = ({
         Ask for articles
       </div>
       <div>{status}</div>
-      <div onClick={() => setParams({ category: 'business', country: 'pl' })}>
-        Change Params
-      </div>
-      <div>{totalResults}</div>
-      <div>
-        {headliners && headliners.map(({ title }) => (
-          <div>{title}</div>
-        ))}
-      </div>
+      {/*<div onClick={() => {}}>*/}
+      {/*  Change Params*/}
+      {/*</div>*/}
+      {/*<div>{totalResults}</div>*/}
+      {/*<div>*/}
+      {/*  {headliners && headliners.map(({ title }) => (*/}
+      {/*    <div>{title}</div>*/}
+      {/*  ))}*/}
+      {/*</div>*/}
     </div>
   )
 }
 
-export default connector(ExampleComponent)
+export default ExampleComponent

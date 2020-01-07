@@ -1,6 +1,32 @@
-import { StatusRange } from "../../store/actions/headliners/types";
+import { StatusRange } from '../../store/actions/headliners/types'
 
-export type CategoriesRange = 'business' | 'entertainment' | 'general' | 'health' | 'science' | 'sports' | 'technology'
+export type CategoriesRange =
+  'business' |
+  'entertainment' |
+  'general' |
+  'health' |
+  'science' |
+  'sports' |
+  'technology'
+
+export type CountriesRange =
+  'pl' |
+  'gb' |
+  'ru' |
+  'be' |
+  'ca' |
+  'cn' |
+  'fr' |
+  'de' |
+  'us'
+
+export type LanguagesRange =
+  'de' |
+  'pl' |
+  'en' |
+  'ru' |
+  'fr' |
+  'zh'
 
 export type ResponseStatusRange = 'ok' | 'error'
 
@@ -8,11 +34,28 @@ export interface CategoriesObject {
   [ key: string ]: CategoriesRange
 }
 
-export interface CallParameters {
-  category?: CategoriesRange,
-  q?: string,
-  country?: string,
-  language?: string
+export interface CountriesObject {
+  [ key: string ]: CountriesRange
+}
+
+export interface LanguagesObject {
+  [ key: string ]: LanguagesRange
+}
+
+export interface SourcesParams {
+  category: CategoriesRange,
+  country: CountriesRange,
+  language: LanguagesRange
+}
+
+export interface HeadlinersParams {
+  sources: string
+}
+
+export interface RequestBuilder {
+  method?: any,
+  url: string,
+  params: SourcesParams | HeadlinersParams
 }
 
 export interface ENTRY_UnprocessedHeadliner {

@@ -1,3 +1,3 @@
-import ExampleComponentView from './ExmapleComponentView'
+import ExampleComponent from './ExampleComponentApi'
 
-export default ExampleComponentView
+export default ExampleComponent
