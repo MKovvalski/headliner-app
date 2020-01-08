@@ -1,6 +1,34 @@
-import { StatusRange } from "../../store/actions/headliners/types";
+import { StatusRange } from '../../store/actions/headliners/types'
 
-export type CategoriesRange = 'business' | 'entertainment' | 'general' | 'health' | 'science' | 'sports' | 'technology'
+export type RequestStatusRange = 'loading' | 'success' | 'error' | null
+
+export type CategoriesRange =
+  'business' |
+  'entertainment' |
+  'general' |
+  'health' |
+  'science' |
+  'sports' |
+  'technology'
+
+export type CountriesRange =
+  'pl' |
+  'gb' |
+  'ru' |
+  'be' |
+  'ca' |
+  'cn' |
+  'fr' |
+  'de' |
+  'us'
+
+export type LanguagesRange =
+  'de' |
+  'pl' |
+  'en' |
+  'ru' |
+  'fr' |
+  'zh'
 
 export type ResponseStatusRange = 'ok' | 'error'
 
@@ -8,11 +36,28 @@ export interface CategoriesObject {
   [ key: string ]: CategoriesRange
 }
 
-export interface CallParameters {
-  category?: CategoriesRange,
-  q?: string,
-  country?: string,
-  language?: string
+export interface CountriesObject {
+  [ key: string ]: CountriesRange
+}
+
+export interface LanguagesObject {
+  [ key: string ]: LanguagesRange
+}
+
+export interface SourcesParams {
+  category: CategoriesRange,
+  country: CountriesRange,
+  language: LanguagesRange
+}
+
+export interface HeadlinersParams {
+  sources: string
+}
+
+export interface RequestBuilder {
+  method?: any,
+  url: string,
+  params: SourcesParams | HeadlinersParams
 }
 
 export interface ENTRY_UnprocessedHeadliner {
@@ -30,11 +75,20 @@ export interface ENTRY_UnprocessedHeadliner {
   content?: string
 }
 
+export interface ENTRY_UnprocessedSource {
+  id: string,
+  name: string
+}
+
 export interface ENTRY_RawResponse {
   status: ResponseStatusRange,
 }
 
-export interface ENTRY_ResponseSuccess extends ENTRY_RawResponse {
+export interface ENTRY_HeadlinesResponseSuccess extends ENTRY_RawResponse {
   totalResults: number,
   articles: ENTRY_UnprocessedHeadliner[]
+}
+
+export interface ENTRY_SourcesResponseSuccess extends ENTRY_RawResponse {
+  sources: ENTRY_UnprocessedSource[]
 }

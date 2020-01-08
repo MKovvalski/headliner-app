@@ -1,28 +1,7 @@
-import axios from 'axios'
-import { API_KEY, API_URL } from '../../../config'
-import { CallParameters, CategoriesObject } from './types'
+import { buildRequest } from './helpers'
+import { HeadlinersParams, SourcesParams } from './types'
+import { HEADLINES_URL, SOURCES_URL } from '../../../config'
 
+export const requestSources = (params: SourcesParams): any => buildRequest({ url: SOURCES_URL, params })
 
-const CATEGORIES: CategoriesObject = {
-  business: 'business',
-  entertainment: 'entertainment',
-  general: 'general',
-  health: 'health',
-  science: 'science',
-  sports: 'sports',
-  technology: 'technology'
-}
-
-const defaultRequestConfig: any = {
-  baseURL: API_URL,
-  method: 'GET',
-  headers: {
-    'X-Api-Key': API_KEY
-  },
-}
-
-export const apiCall = (params: CallParameters) =>
-  axios ({
-    ...defaultRequestConfig,
-    params
-  })
+export const requestHeadlines = (params: HeadlinersParams): any => buildRequest({ url: HEADLINES_URL, params })
