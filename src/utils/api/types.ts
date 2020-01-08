@@ -2,7 +2,7 @@ import { StatusRange } from '../../store/actions/headliners/types'
 
 export type RequestStatusRange = 'loading' | 'success' | 'error' | null
 
-export type CategoriesRange =
+export type CategoriesValueRange =
   'business' |
   'entertainment' |
   'general' |
@@ -11,7 +11,23 @@ export type CategoriesRange =
   'sports' |
   'technology'
 
-export type CountriesRange =
+export interface CategoriesInterface {
+  label: CategoriesValueRange,
+  value: CategoriesValueRange
+}
+
+export type CountriesLabelRange =
+  'Poland' |
+  'United States' |
+  'Russia' |
+  'Belgium' |
+  'Canada' |
+  'China' |
+  'France' |
+  'Germany' |
+  'United Kingdom'
+
+export type CountriesValueRange =
   'pl' |
   'gb' |
   'ru' |
@@ -22,7 +38,20 @@ export type CountriesRange =
   'de' |
   'us'
 
-export type LanguagesRange =
+export interface CountriesInterface {
+  label: CountriesLabelRange,
+  value: CountriesValueRange
+}
+
+export type LanguagesLabelRange =
+  'german' |
+  'polish' |
+  'english' |
+  'russian' |
+  'french' |
+  'chinese'
+
+export type LanguagesValuesRange =
   'de' |
   'pl' |
   'en' |
@@ -30,24 +59,17 @@ export type LanguagesRange =
   'fr' |
   'zh'
 
+export interface LanguagesInterface {
+  label: LanguagesLabelRange,
+  value: LanguagesValuesRange
+}
+
 export type ResponseStatusRange = 'ok' | 'error'
 
-export interface CategoriesObject {
-  [ key: string ]: CategoriesRange
-}
-
-export interface CountriesObject {
-  [ key: string ]: CountriesRange
-}
-
-export interface LanguagesObject {
-  [ key: string ]: LanguagesRange
-}
-
 export interface SourcesParams {
-  category: CategoriesRange,
-  country: CountriesRange,
-  language: LanguagesRange
+  category: CategoriesValueRange,
+  country: CountriesValueRange,
+  language: LanguagesValuesRange
 }
 
 export interface HeadlinersParams {

@@ -1,4 +1,4 @@
-import { buildRequest } from './helpers'
+import { buildRequest } from './apiMethods'
 import { HeadlinersParams, SourcesParams } from './types'
 import { HEADLINES_URL, SOURCES_URL } from '../../../config'
 

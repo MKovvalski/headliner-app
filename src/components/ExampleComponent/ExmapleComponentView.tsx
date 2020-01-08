@@ -1,6 +1,6 @@
 import React from 'react'
 import { RequestStatusRange } from '../../utils/api/types'
-import { ENTRY_Source } from '../../store/actions/search/types'
+import { ENTRY_Source } from '../../store/actions/sources/types'
 
 export interface ExampleComponentProps {
   title: string,

@@ -4,7 +4,7 @@ import { ENTRY_headliners } from '../../store/actions/headliners/types'
 
 import { HEADLINER_STATUSES } from '../../store/actions/consts'
 import { API_KEY, API_URL } from '../../../config'
-import { ENTRY_Sources } from '../../store/actions/search/types'
+import { ENTRY_Sources } from '../../store/actions/sources/types'
 
 export const buildRequest = ({
   url,
