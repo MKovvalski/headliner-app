@@ -15,7 +15,7 @@ export interface ENTRY_toReadsStore {
 }
 
 export interface ENTRY_sourcesStore {
-  sources: ENTRY_Source[] | null
+  chosenSources: ENTRY_Source[]
 }
 
 export interface ENTRY_searchParamsStore extends SourcesParams {}

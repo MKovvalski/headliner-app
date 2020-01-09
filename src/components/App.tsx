@@ -1,13 +1,12 @@
 import React from 'react'
-import ExampleComponent from './ExampleComponent'
-import SearchContainer from './SearchContainer/SearchContainer'
+import SearchContainer from './SearchContainer'
+import SearchSources from './SearchSources'
 
 const App = () => {
   return (
     <div className='app-test'>
-      <ExampleComponent />
       <SearchContainer />
-      Aloha and welcome to The Headliner app
+      <SearchSources />
     </div>
   )
 }

@@ -5,7 +5,10 @@ export interface SelectOption {
 
 export interface DropdownSelect {
   options: SelectOption[],
-  defaultValue: SelectOption,
+  defaultValue?: SelectOption,
   onChange?: any,
-  value?: SelectOption
+  value?: SelectOption | SelectOption[],
+  isMulti?: boolean,
+  isClearable?: boolean,
+  isDisabled?: boolean
 }

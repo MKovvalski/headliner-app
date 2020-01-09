@@ -4,9 +4,9 @@ import { OUTPUT_SearchParams } from '../../actions/searchParams/types'
 import { ENTRY_searchParamsStore } from '../types'
 
 export const INITIAL_STATE: ENTRY_searchParamsStore = {
-  category: CATEGORIES_ARRAY[ 0 ].value,
-  country: COUNTRIES_ARRAY[ 0 ].value,
-  language: LANGUAGES_ARRAY[ 0 ].value
+  category: CATEGORIES_ARRAY[ 6 ].value,
+  country: COUNTRIES_ARRAY[ 1 ].value,
+  language: LANGUAGES_ARRAY[ 2 ].value
 }
 
 const searchParams = (

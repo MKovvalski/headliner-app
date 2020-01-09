@@ -1,11 +1,7 @@
-import { ENTRY_Sources, OUTPUT_Sources } from './types'
+import { ENTRY_ChosenSources, OUTPUT_Source } from './types'
+import { SET_SOURCES } from '../consts'
 
-import {
-  GET_SOURCES,
-  SET_SOURCES
-} from '../consts'
-
-export const getSources = (payload: ENTRY_Sources): OUTPUT_Sources => ({
-  type: GET_SOURCES,
+export const addSource = (payload: ENTRY_ChosenSources): OUTPUT_Source => ({
+  type: SET_SOURCES,
   payload
 })

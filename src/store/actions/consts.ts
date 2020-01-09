@@ -18,7 +18,6 @@ export const HEADLINER_STATUSES: ENTRY_headlinerStatus = {
 }
 
 // sources action names
-export const GET_SOURCES: string = 'GET_SOURCES'
 export const SET_SOURCES: string = 'SET_SOURCES'
 
 // searchParams action names

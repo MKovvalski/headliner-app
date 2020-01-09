@@ -6,6 +6,9 @@ const DropdownSelect: React.FC<DropdownSelect> = ({
   options,
   defaultValue,
   onChange,
+  isMulti,
+  isClearable,
+  isDisabled = false,
   value
 }) => {
   return (
@@ -15,6 +18,9 @@ const DropdownSelect: React.FC<DropdownSelect> = ({
         options={options}
         defaultValue={defaultValue}
         onChange={onChange}
+        isMulti={isMulti}
+        isClearable={isClearable}
+        isDisabled={isDisabled}
       />
     </>
   )

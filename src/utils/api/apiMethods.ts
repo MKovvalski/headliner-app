@@ -44,6 +44,6 @@ export const formatHeadersResponseData = (responsePayload: ENTRY_HeadlinesRespon
 export const formatSourcesResponseData = (responsePayload: ENTRY_SourcesResponseSuccess): ENTRY_Sources => {
   const { sources }= responsePayload
   return {
-    sources: sources.map(({ id, name }) => ({ id, name }))
+    sources: sources.map(({ id, name }) => ({ value: id, label: name }))
   }
 }
