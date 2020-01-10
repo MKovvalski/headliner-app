@@ -46,8 +46,10 @@ const SearchSources: React.FC = () => {
   }, [ searchParams ])
 
   const valueChangeHandler = (value: ENTRY_Source[]): void => {
-    updateSelectValue(value)
-    valueDispatcher(value)
+    const formattedValue = value === null? [] : value
+
+    updateSelectValue(formattedValue)
+    valueDispatcher(formattedValue)
   }
 
   return (

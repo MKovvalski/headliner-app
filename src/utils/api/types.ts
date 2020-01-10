@@ -73,7 +73,8 @@ export interface SourcesParams {
 }
 
 export interface HeadlinersParams {
-  sources: string
+  sources: string,
+  pageSize: number
 }
 
 export interface RequestBuilder {
