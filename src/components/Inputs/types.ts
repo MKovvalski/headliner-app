@@ -10,5 +10,8 @@ export interface DropdownSelect {
   value?: SelectOption | SelectOption[],
   isMulti?: boolean,
   isClearable?: boolean,
-  isDisabled?: boolean
+  isDisabled?: boolean,
+  placeholder?: string,
+  className?: string,
+  classNamePrefix?: string
 }

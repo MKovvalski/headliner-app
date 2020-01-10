@@ -51,15 +51,16 @@ const SearchButton: React.FC = () => {
   }, [ sources, chosenSources ])
 
   return (
-    <>
+    <div className='search-button'>
       <button
+        className='button'
         onClick={requestTrigger}
         disabled={disabledStatus}
       >
-        I LOAD HEADLINERS
+        Confirm selection
       </button>
       <div>{requestState}</div>
-    </>
+    </div>
   )
 }
 

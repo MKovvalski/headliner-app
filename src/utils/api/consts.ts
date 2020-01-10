@@ -5,13 +5,13 @@ import {
 } from './types'
 
 export const CATEGORIES_ARRAY: CategoriesInterface[] = [
-  { label: 'business', value: 'business' },
-  { label: 'entertainment', value: 'entertainment' },
-  { label: 'general', value: 'general' },
-  { label: 'health', value: 'health' },
-  { label: 'science', value: 'science' },
-  { label: 'sports', value: 'sports' },
-  { label: 'technology', value: 'technology' }
+  { label: 'Business', value: 'business' },
+  { label: 'Entertainment', value: 'entertainment' },
+  { label: 'General', value: 'general' },
+  { label: 'Health', value: 'health' },
+  { label: 'Science', value: 'science' },
+  { label: 'Sports', value: 'sports' },
+  { label: 'Technology', value: 'technology' }
 ]
 
 export const COUNTRIES_ARRAY: CountriesInterface[] = [
@@ -27,10 +27,10 @@ export const COUNTRIES_ARRAY: CountriesInterface[] = [
 ]
 
 export const LANGUAGES_ARRAY: LanguagesInterface[] = [
-  { label: 'german', value: 'de' },
-  { label: 'polish', value: 'pl' },
-  { label: 'english', value: 'en' },
-  { label: 'russian', value: 'ru' },
-  { label: 'french', value: 'fr' },
-  { label: 'chinese', value: 'zh' }
+  { label: 'German', value: 'de' },
+  { label: 'Polish', value: 'pl' },
+  { label: 'English', value: 'en' },
+  { label: 'Russian', value: 'ru' },
+  { label: 'French', value: 'fr' },
+  { label: 'Chinese', value: 'zh' }
 ]
