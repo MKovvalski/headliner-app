@@ -1,32 +1,36 @@
-import { CategoriesObject, CountriesObject, LanguagesObject } from './types'
+import {
+  CategoriesInterface,
+  LanguagesInterface,
+  CountriesInterface
+} from './types'
 
-export const CATEGORIES: CategoriesObject = {
-  business: 'business',
-  entertainment: 'entertainment',
-  general: 'general',
-  health: 'health',
-  science: 'science',
-  sports: 'sports',
-  technology: 'technology'
-}
+export const CATEGORIES_ARRAY: CategoriesInterface[] = [
+  { label: 'business', value: 'business' },
+  { label: 'entertainment', value: 'entertainment' },
+  { label: 'general', value: 'general' },
+  { label: 'health', value: 'health' },
+  { label: 'science', value: 'science' },
+  { label: 'sports', value: 'sports' },
+  { label: 'technology', value: 'technology' }
+]
 
-export const COUNTRIES: CountriesObject = {
-  poland: 'pl',
-  unitedStates: 'us',
-  russia: 'ru',
-  belgium: 'be',
-  canada: 'ca',
-  china: 'cn',
-  france: 'fr',
-  germany: 'de',
-  unitedKingdom: 'gb'
-}
+export const COUNTRIES_ARRAY: CountriesInterface[] = [
+  { label: 'Poland', value: 'pl' },
+  { label: 'United States', value: 'us' },
+  { label: 'Russia', value: 'ru' },
+  { label: 'Belgium', value: 'be' },
+  { label: 'Canada', value: 'ca' },
+  { label: 'China', value: 'cn' },
+  { label: 'France', value: 'fr' },
+  { label: 'Germany', value: 'de' },
+  { label: 'United Kingdom', value: 'gb' }
+]
 
-export const LANGUAGES: LanguagesObject = {
-  german: 'de',
-  polish: 'pl',
-  english: 'en',
-  russian: 'ru',
-  french: 'fr',
-  chinese: 'zh',
-}
+export const LANGUAGES_ARRAY: LanguagesInterface[] = [
+  { label: 'german', value: 'de' },
+  { label: 'polish', value: 'pl' },
+  { label: 'english', value: 'en' },
+  { label: 'russian', value: 'ru' },
+  { label: 'french', value: 'fr' },
+  { label: 'chinese', value: 'zh' }
+]

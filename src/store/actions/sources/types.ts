@@ -1,11 +1,15 @@
 // entries
 export interface ENTRY_Source {
-  id: string,
-  name: string
+  label: string,
+  value: string
 }
 
 export interface ENTRY_Sources {
-  sources: ENTRY_Source[] | null
+  sources: ENTRY_Source[]
+}
+
+export interface ENTRY_ChosenSources {
+  chosenSources: ENTRY_Source[]
 }
 
 // outputs
@@ -16,4 +20,8 @@ export interface OUTPUT_DefaultAction {
 
 export interface OUTPUT_Sources extends OUTPUT_DefaultAction {
   payload: ENTRY_Sources
+}
+
+export interface OUTPUT_ChosenSources extends OUTPUT_DefaultAction {
+  payload: ENTRY_ChosenSources
 }

@@ -4,7 +4,7 @@ import { ENTRY_headliners } from '../../store/actions/headliners/types'
 
 import { HEADLINER_STATUSES } from '../../store/actions/consts'
 import { API_KEY, API_URL } from '../../../config'
-import { ENTRY_Sources } from '../../store/actions/search/types'
+import { ENTRY_Sources } from '../../store/actions/sources/types'
 
 export const buildRequest = ({
   url,
@@ -44,6 +44,6 @@ export const formatHeadersResponseData = (responsePayload: ENTRY_HeadlinesRespon
 export const formatSourcesResponseData = (responsePayload: ENTRY_SourcesResponseSuccess): ENTRY_Sources => {
   const { sources }= responsePayload
   return {
-    sources: sources.map(({ id, name }) => ({ id, name }))
+    sources: sources.map(({ id, name }) => ({ value: id, label: name }))
   }
 }

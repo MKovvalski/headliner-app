@@ -1,6 +1,6 @@
 import { ENTRY_headliner } from '../actions/headliners/types'
-import { CategoriesRange, CountriesRange, LanguagesRange } from '../../utils/api/types'
-import { ENTRY_Source } from '../actions/search/types'
+import { SourcesParams } from '../../utils/api/types'
+import { ENTRY_Source } from '../actions/sources/types'
 
 export interface ENTRY_headlinersStore {
   totalResults: number
@@ -14,11 +14,9 @@ export interface ENTRY_toReadsStore {
   toReads: ENTRY_headliner[] | null
 }
 
-export interface ENTRY_searchStore {
-  searchParams: {
-    category: CategoriesRange,
-    country: CountriesRange,
-    language: LanguagesRange,
-  },
-  sources: ENTRY_Source[] | null
+export interface ENTRY_sourcesStore {
+  sources: ENTRY_Source[],
+  chosenSources: ENTRY_Source[]
 }
+
+export interface ENTRY_searchParamsStore extends SourcesParams {}
