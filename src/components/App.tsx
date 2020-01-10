@@ -1,17 +1,14 @@
 import React from 'react'
-import SearchContainer from './SearchContainer'
-import SearchSources from './SearchSources'
-import SearchButton from './SearchButton'
+import Layout from './Layout'
 import HeadlinesContainer from './HeadlinesContainer'
+import SearchContainer from './SearchContainer'
 
 const App = () => {
   return (
-    <div className='app-test'>
+    <Layout>
       <SearchContainer />
-      <SearchSources />
-      <SearchButton />
       <HeadlinesContainer />
-    </div>
+    </Layout>
   )
 }
 

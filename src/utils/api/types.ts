@@ -2,6 +2,15 @@ import { StatusRange } from '../../store/actions/headliners/types'
 
 export type RequestStatusRange = 'loading' | 'success' | 'error' | null
 
+export type CategoriesLabelRange =
+  'Business' |
+  'Entertainment' |
+  'General' |
+  'Health' |
+  'Science' |
+  'Sports' |
+  'Technology'
+
 export type CategoriesValueRange =
   'business' |
   'entertainment' |
@@ -12,7 +21,7 @@ export type CategoriesValueRange =
   'technology'
 
 export interface CategoriesInterface {
-  label: CategoriesValueRange,
+  label: CategoriesLabelRange,
   value: CategoriesValueRange
 }
 
@@ -44,12 +53,12 @@ export interface CountriesInterface {
 }
 
 export type LanguagesLabelRange =
-  'german' |
-  'polish' |
-  'english' |
-  'russian' |
-  'french' |
-  'chinese'
+  'German' |
+  'Polish' |
+  'English' |
+  'Russian' |
+  'French' |
+  'Chinese'
 
 export type LanguagesValuesRange =
   'de' |

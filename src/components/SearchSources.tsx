@@ -53,15 +53,14 @@ const SearchSources: React.FC = () => {
   }
 
   return (
-    <div>
-      {status}
-      {sources.length === 0 && <div>No Sources were found</div>}
+    <div className='search-sources'>
       <DropdownSelect
         isMulti={true}
         value={selectValue}
         onChange={valueChangeHandler}
         isDisabled={disabledStatus}
         options={sources}
+        placeholder='Your sources'
       />
     </div>
   )
