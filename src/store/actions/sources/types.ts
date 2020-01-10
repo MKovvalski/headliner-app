@@ -22,6 +22,6 @@ export interface OUTPUT_Sources extends OUTPUT_DefaultAction {
   payload: ENTRY_Sources
 }
 
-export interface OUTPUT_Source extends OUTPUT_DefaultAction {
+export interface OUTPUT_ChosenSources extends OUTPUT_DefaultAction {
   payload: ENTRY_ChosenSources
 }

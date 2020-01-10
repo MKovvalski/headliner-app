@@ -15,6 +15,7 @@ export interface ENTRY_toReadsStore {
 }
 
 export interface ENTRY_sourcesStore {
+  sources: ENTRY_Source[],
   chosenSources: ENTRY_Source[]
 }
 

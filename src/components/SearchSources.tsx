@@ -6,15 +6,15 @@ import { requestSources } from '../utils/api/api'
 import { formatSourcesResponseData } from '../utils/api/apiMethods'
 import DropdownSelect from './Inputs/DropdownSelect'
 import { ENTRY_Source } from '../store/actions/sources/types'
-import { addSource } from '../store/actions/sources/actions'
+import { setSources, setChosenSources } from '../store/actions/sources/actions'
 
 const SearchSources: React.FC = () => {
   const dispatch = useDispatch()
   const searchParams: SourcesParams = useSelector((state: RootStore) => state.searchParams)
+  const sources: ENTRY_Source[] = useSelector((state: RootStore) => state.sources.sources)
 
   const [ status, updateStatus ] = useState<RequestStatusRange>(null)
   const [ selectValue, updateSelectValue ] = useState<ENTRY_Source[]>([])
-  const [ sources, setSources ] = useState<ENTRY_Source[]>([])
   const [ disabledStatus, setDisabilityStatus ] = useState<boolean>(true)
 
   const requestSourceList = async () => {
@@ -23,10 +23,9 @@ const SearchSources: React.FC = () => {
       updateStatus('loading')
 
       const { data }: any = await requestSources(searchParams)
-
       const { sources } = formatSourcesResponseData(data)
 
-      setSources(sources)
+      dispatch(setSources({ sources }))
       updateStatus('success')
       setDisabilityStatus(false)
 
@@ -36,7 +35,7 @@ const SearchSources: React.FC = () => {
   }
 
   const valueDispatcher = (value: ENTRY_Source[]): void => {
-    dispatch(addSource({ chosenSources: value }))
+    dispatch(setChosenSources({ chosenSources: value }))
   }
 
   useEffect(() => {
