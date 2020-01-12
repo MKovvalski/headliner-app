@@ -59,7 +59,6 @@ const SearchButton: React.FC = () => {
       >
         Confirm selection
       </button>
-      <div>{requestState}</div>
     </div>
   )
 }

@@ -47,7 +47,7 @@ const HeadlinerTile: React.FC<HeadlinerTile> = ({
             href={url}
             target='_blank'
           >
-            Read article &rarr;
+            Read article
           </a>
         </div>
       </div>
