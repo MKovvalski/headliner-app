@@ -1,4 +1,5 @@
 import { ENTRY_headlinerStatus } from './headliners/types'
+import { loadingStateObject } from './ui/types'
 
 // headliners list action names
 export const GET_HEADLINERS: string = 'GET_HEADLINERS'
@@ -23,3 +24,13 @@ export const SET_CHOSEN_SOURCES: string = 'SET_CHOSEN_SOURCES'
 
 // searchParams action names
 export const SET_PARAMETERS: string = 'SET_PARAMETERS'
+
+// ui action names
+export const SET_LOADING_STATE: string = 'SET_LOADING_STATE'
+
+export const LOADING_STATUSES: loadingStateObject = {
+  loading: 'loading',
+  success: 'success',
+  error: 'error',
+  initial: null
+}

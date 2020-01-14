@@ -7,59 +7,39 @@ import { formatSourcesResponseData } from '../utils/api/apiMethods'
 import DropdownSelect from './Inputs/DropdownSelect'
 import { ENTRY_Source } from '../store/actions/sources/types'
 import { setSources, setChosenSources } from '../store/actions/sources/actions'
+import useSourcesRequest from '../hooks/useSourcesRequest'
+import { LOADING_STATUSES } from '../store/actions/consts'
 
 const SearchSources: React.FC = () => {
   const dispatch = useDispatch()
+
+  const { status, triggerRequest } = useSourcesRequest()
   const searchParams: SourcesParams = useSelector((state: RootStore) => state.searchParams)
   const sources: ENTRY_Source[] = useSelector((state: RootStore) => state.sources.sources)
-
-  const [ status, updateStatus ] = useState<RequestStatusRange>(null)
-  const [ selectValue, updateSelectValue ] = useState<ENTRY_Source[]>([])
-  const [ disabledStatus, setDisabilityStatus ] = useState<boolean>(true)
-
-  const requestSourceList = async () => {
-    try {
-      setDisabilityStatus(true)
-      updateStatus('loading')
-
-      const { data }: any = await requestSources(searchParams)
-      const { sources } = formatSourcesResponseData(data)
-
-      dispatch(setSources({ sources }))
-      updateStatus('success')
-      setDisabilityStatus(false)
-
-    } catch (e) {
-      updateStatus('error')
-    }
-  }
-
-  const valueDispatcher = (value: ENTRY_Source[]): void => {
-    dispatch(setChosenSources({ chosenSources: value }))
-  }
+  const chosenSources: ENTRY_Source[] = useSelector((state: RootStore) => state.sources.chosenSources)
 
   useEffect(() => {
-    requestSourceList()
-    updateSelectValue([])
-    valueDispatcher([])
+    triggerRequest()
+    dispatch(setChosenSources({ chosenSources: [] }))
 
   }, [ searchParams ])
 
   const valueChangeHandler = (value: ENTRY_Source[]): void => {
-    const formattedValue = value === null? [] : value
+    const chosenSources = value === null? [] : value
 
-    updateSelectValue(formattedValue)
-    valueDispatcher(formattedValue)
+    dispatch(setChosenSources({ chosenSources }))
   }
+
+  const isDisabled = status === LOADING_STATUSES.loading
 
   return (
     <div className='search-sources'>
       <DropdownSelect
         isMulti={true}
-        value={selectValue}
-        onChange={valueChangeHandler}
-        isDisabled={disabledStatus}
         options={sources}
+        value={chosenSources}
+        onChange={valueChangeHandler}
+        isDisabled={isDisabled}
         placeholder='Your sources'
       />
     </div>
