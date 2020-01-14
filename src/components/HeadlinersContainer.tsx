@@ -1,14 +1,21 @@
 import React from 'react'
-import HeadlinersRenderer from './HeadlinersRenderer'
 import { useSelector } from 'react-redux'
 import { RootStore } from '../store/types'
 import { loadingStateRange } from '../store/actions/ui/types'
-import HeadlinersPlaceholder from './HeadlinersPlaceholder'
 import { LOADING_STATUSES } from '../store/actions/consts'
+import NoInternetPlaceholder from './NoInternetPlaceholder'
+import HeadlinersRenderer from './HeadlinersRenderer'
+import HeadlinersPlaceholder from './HeadlinersPlaceholder'
+import ServerError from './ServerError'
 
 const HeadlinersContainer: React.FC = () => {
   const totalResults: number = useSelector((state: RootStore) => state.headliners.totalResults)
-  const loadingState: loadingStateRange = useSelector((state: RootStore) => state.ui.loadingHeadliners)
+  const loadingSources: loadingStateRange = useSelector(({ ui }: RootStore) => ui.loadingSources)
+  const loadingHeadliners: loadingStateRange = useSelector(({ ui}: RootStore) => ui.loadingHeadliners)
+  const { loading, success, error } = LOADING_STATUSES
+
+  const areHeadliners = (state: loadingStateRange): boolean => loadingHeadliners === state
+  const lostConnection = loadingSources === error && loadingHeadliners === null
 
   return (
     <div className='headliners-container'>
@@ -20,9 +27,10 @@ const HeadlinersContainer: React.FC = () => {
           {totalResults} headliners
         </div>
       </div>
-      { loadingState === LOADING_STATUSES.loading && <HeadlinersPlaceholder quantity={3}/> }
-      { loadingState === LOADING_STATUSES.success && <HeadlinersRenderer /> }
-      { loadingState === LOADING_STATUSES.error && <div>Sorry, our server got sick and went home early </div> }
+      { lostConnection && <NoInternetPlaceholder /> }
+      { areHeadliners(loading) && <HeadlinersPlaceholder quantity={3} /> }
+      { areHeadliners(success) && <HeadlinersRenderer /> }
+      { areHeadliners(error) && <ServerError /> }
     </div>
   )
 }
