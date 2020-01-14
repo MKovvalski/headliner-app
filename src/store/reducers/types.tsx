@@ -1,6 +1,7 @@
 import { ENTRY_headliner } from '../actions/headliners/types'
 import { SourcesParams } from '../../utils/api/types'
 import { ENTRY_Source } from '../actions/sources/types'
+import { loadingStateRange } from '../actions/ui/types'
 
 export interface ENTRY_headlinersStore {
   totalResults: number
@@ -20,3 +21,9 @@ export interface ENTRY_sourcesStore {
 }
 
 export interface ENTRY_searchParamsStore extends SourcesParams {}
+
+export interface ENTRY_UIStore {
+  loadingHeadliners: loadingStateRange
+  loadingSources: loadingStateRange,
+  pageCount: number
+}
