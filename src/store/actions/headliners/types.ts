@@ -20,7 +20,7 @@ export interface ENTRY_headlinerStatus {
 
 export interface ENTRY_headliners {
   totalResults: number
-  headliners: ENTRY_headliner[] | null
+  headliners: ENTRY_headliner[]
 }
 
 // outputs

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setSearchParams } from '../store/actions/searchParams/actions'
 import { CATEGORIES_ARRAY, COUNTRIES_ARRAY, LANGUAGES_ARRAY } from '../utils/api/consts'
@@ -10,6 +10,8 @@ const SearchParameters: React.FC = () => {
   const [ country, setCountry ] = useState<CountriesInterface>(COUNTRIES_ARRAY[ 1 ])
   const [ language, setLanguage ] = useState<LanguagesInterface>(LANGUAGES_ARRAY[ 2 ])
   const [ disabled, setDisabledState ] = useState<boolean>(true)
+
+  const isMounted = useRef<boolean>(false)
 
   const dispatch = useDispatch()
 
@@ -25,7 +27,11 @@ const SearchParameters: React.FC = () => {
   }
 
   useEffect(() => {
-    setDisabledState(false)
+    if (isMounted.current) {
+      setDisabledState(false)
+    } else {
+      isMounted.current = true
+    }
   }, [ category, country, language ])
 
   return (

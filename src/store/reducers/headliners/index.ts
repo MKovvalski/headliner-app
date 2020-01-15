@@ -9,7 +9,7 @@ import { appendHeadliners } from './reducerMethods'
 
 const INITIAL_STATE: ENTRY_headlinersStore = {
   totalResults: 0,
-  headliners: null
+  headliners: []
 }
 
 const headliners = (

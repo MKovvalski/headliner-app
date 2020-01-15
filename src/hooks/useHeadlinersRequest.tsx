@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootStore } from '../store/types'
-import { setUIState } from '../store/actions/ui/actions'
+import { setUIState} from '../store/actions/ui/actions'
 import { LOADING_STATUSES } from '../store/actions/consts'
 import { ENTRY_Source } from '../store/actions/sources/types'
 import { requestHeadlines } from '../utils/api/api'
