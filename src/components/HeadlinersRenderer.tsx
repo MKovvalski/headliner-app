@@ -5,7 +5,7 @@ import HeadlinerTile from './HeadlinerTile'
 import { RootStore } from '../store/types'
 
 const HeadlinersRenderer: React.FC = () => {
-  const headliners: ENTRY_headliner[] | null = useSelector(({ headliners }: RootStore) => headliners.headliners)
+  const headliners: ENTRY_headliner[] = useSelector(({ headliners }: RootStore) => headliners.headliners)
 
   return (
     <div className='headliners-renderer'>

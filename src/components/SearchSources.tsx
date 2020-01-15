@@ -30,7 +30,7 @@ const SearchSources: React.FC = () => {
     dispatch(setChosenSources({ chosenSources }))
   }
 
-  const isDisabled = status === LOADING_STATUSES.loading
+  const isDisabled = status === LOADING_STATUSES.loading || status === LOADING_STATUSES.initial
 
   return (
     <div className='search-sources'>
