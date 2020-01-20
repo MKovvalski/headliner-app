@@ -18,7 +18,6 @@ export const appendHeadliners = (payload: ENTRY_headliners): OUTPUT_headliners =
   payload
 })
 
-export const overrideHeadliners = (payload: ENTRY_headliners): OUTPUT_headliners => ({
-  type: REFRESH_HEADLINERS,
-  payload
+export const overrideHeadliners = (): { type: string } => ({
+  type: REFRESH_HEADLINERS
 })

@@ -2,8 +2,7 @@ import React from 'react'
 import { ENTRY_headliner } from '../store/actions/headliners/types'
 import moment from 'moment'
 
-interface HeadlinerTile extends ENTRY_headliner {
-}
+interface HeadlinerTile extends ENTRY_headliner {}
 
 const HeadlinerTile: React.FC<HeadlinerTile> = ({
   urlToImage,
@@ -16,26 +15,30 @@ const HeadlinerTile: React.FC<HeadlinerTile> = ({
 }) => {
   return (
     <div className='headliner'>
-      {!!urlToImage ?
-        <img
-          className='headliner__img'
-          src={urlToImage}
-          alt={title}
-        />
-        :
-        <div className='headliner__img-placeholder'/>
-      }
+      <div className='headliner__img-wrapper'>
+        {!!urlToImage ?
+          <img
+            className='headliner__img'
+            src={urlToImage}
+            alt={title}
+          />
+          :
+          <div className='headliner__img-placeholder'/>
+        }
+      </div>
       <div className='headliner__content-wrapper'>
-        <div className='headliner__title'>
-          {title}
+        <div>
+          <div className='headliner__title'>
+            {title}
+          </div>
+          <div className='headliner__source'>
+            {source}
+          </div>
+          <div
+            className='headliner__description'
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
         </div>
-        <div className='headliner__source'>
-          {source}
-        </div>
-        <div
-          className='headliner__description'
-          dangerouslySetInnerHTML={{ __html: description }}
-        />
         <div className='headliner__bottom'>
           {publishedAt &&
           <div className='headliner__date'>

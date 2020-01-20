@@ -1,9 +1,26 @@
 .search-params
   margin-bottom: 30px
 
+  +media-breakpoint-up(md)
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+
   &__select-wrapper
     margin-bottom: 15px
+
+    +media-breakpoint-up(md)
+      width: 32%
 
     .params-select
       &__single-value
         overflow: unset
+
+      &__control
+        +media-breakpoint-up(md)
+          min-height: 43px
+
+      +media-breakpoint-up(md)
+        width: 100%
+        flex-shrink: 0
+        font-size: 18px

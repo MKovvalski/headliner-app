@@ -41,6 +41,8 @@ const SearchSources: React.FC = () => {
         onChange={valueChangeHandler}
         isDisabled={isDisabled}
         placeholder='Your sources'
+        className='sources-select'
+        classNamePrefix='sources-select'
       />
     </div>
   )
