@@ -6,12 +6,11 @@ import DropdownSelect from './Inputs/DropdownSelect'
 import { CategoriesInterface, CountriesInterface, LanguagesInterface } from '../utils/api/types'
 
 const SearchParameters: React.FC = () => {
+  const [ disabled, setDisabledState ] = useState<boolean>(true)
+  const [ mounted, setMountedState ] = useState<boolean>(false)
   const [ category, setCategory ] = useState<CategoriesInterface>(CATEGORIES_ARRAY[ 6 ])
   const [ country, setCountry ] = useState<CountriesInterface>(COUNTRIES_ARRAY[ 1 ])
   const [ language, setLanguage ] = useState<LanguagesInterface>(LANGUAGES_ARRAY[ 2 ])
-  const [ disabled, setDisabledState ] = useState<boolean>(true)
-
-  const isMounted = useRef<boolean>(false)
 
   const dispatch = useDispatch()
 
@@ -27,10 +26,10 @@ const SearchParameters: React.FC = () => {
   }
 
   useEffect(() => {
-    if (isMounted.current) {
+    if (mounted) {
       setDisabledState(false)
     } else {
-      isMounted.current = true
+      setMountedState(true)
     }
   }, [ category, country, language ])
 

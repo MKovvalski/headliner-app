@@ -3,7 +3,7 @@ import Layout from './Layout'
 import HeadlinersContainer from './HeadlinersContainer'
 import SearchContainer from './SearchContainer'
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <Layout>
       <SearchContainer />

@@ -1,6 +1,6 @@
 import React from 'react'
 import { ENTRY_headliner } from '../store/actions/headliners/types'
-import moment from 'moment'
+// import moment from 'moment'
 
 interface HeadlinerTile extends ENTRY_headliner {}
 
@@ -42,7 +42,8 @@ const HeadlinerTile: React.FC<HeadlinerTile> = ({
         <div className='headliner__bottom'>
           {publishedAt &&
           <div className='headliner__date'>
-            {moment(publishedAt).format('HH:mm MMMM DD, YYYY')}
+            {publishedAt}
+            {/* {moment(publishedAt).format('HH:mm MMMM DD, YYYY')} */}
           </div>
           }
           <a
