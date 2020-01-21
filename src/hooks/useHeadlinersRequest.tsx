@@ -6,7 +6,7 @@ import { LOADING_STATUSES } from '../store/actions/consts'
 import { ENTRY_Source } from '../store/actions/sources/types'
 import { requestHeadlines } from '../utils/api/api'
 import { formatHeadersResponseData } from '../utils/api/apiMethods'
-import { getHeadliners, appendHeadliners } from '../store/actions/headliners/actions'
+import { getHeadliners, appendHeadliners, overrideHeadliners } from '../store/actions/headliners/actions'
 import { loadingStateRange } from '../store/actions/ui/types'
 
 type OperationTypeRange = 'add' | 'append'
@@ -51,6 +51,7 @@ const useHeadlinersRequest = (): HeadlinersHookInterface => {
 
       switch (operationType) {
         case OperationType.add:
+          dispatch(overrideHeadliners())
 
           const addResponseData = await requestHeadlines({ sources: formattedSources })
           newPageCount = 1

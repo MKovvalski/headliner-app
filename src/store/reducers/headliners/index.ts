@@ -24,7 +24,7 @@ const headliners = (
       return appendHeadliners(state, payload)
 
     case REFRESH_HEADLINERS:
-      return payload
+      return INITIAL_STATE
   }
 
   return state

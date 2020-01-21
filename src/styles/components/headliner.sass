@@ -4,6 +4,15 @@
   box-shadow: 0 0 0.3rem 0 rgba(0, 0, 0, .26)
   border-radius: 7px
 
+  +media-breakpoint-up(md)
+    display: flex
+    flex-direction: row-reverse
+    border: 1px solid $color-grey-75
+
+  &__img-wrapper
+    background-color: $color-grey-75
+    border-radius: 0 5px 5px 0
+
   &__img
     display: flex
     width: 100%
@@ -11,6 +20,12 @@
     object-fit: cover
     border-radius: 7px 7px 0 0
     background-color: $color-grey-75
+    flex-shrink: 0
+
+    +media-breakpoint-up(md)
+      width: 250px
+      height: 250px
+      border-radius: 0 7px 7px 0
 
   &__img-placeholder
     width: 100%
@@ -21,6 +36,7 @@
     border-radius: 7px 7px 0 0
     background-color: $color-grey-75
     position: relative
+    flex-shrink: 0
 
     &:after
       position: absolute
@@ -40,13 +56,28 @@
       background-color: $color-grey-50
       transform: rotate(45deg)
 
+    +media-breakpoint-up(md)
+      width: 250px
+      height: 250px
+      border-radius: 0 7px 7px 0
 
   &__content-wrapper
+    width: 100%
     padding: 13px 13px 15px
     margin-bottom: 10px
     border: 1px solid $color-grey-75
     border-top: none
     border-radius: 0 0 7px 7px
+
+    +media-breakpoint-up(md)
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      margin-bottom: unset
+      border: unset
+      border-right: none
+      border-radius: 7px 0 0 7px
+      padding: 15px
 
   &__title
     font-size: 24px
@@ -55,25 +86,40 @@
     color: $color-grey-15
     line-height: 27px
 
+    +media-breakpoint-up(md)
+      font-size: 30px
+      line-height: 32px
+      margin-bottom: 8px
+
   &__source
     font-size: 14px
     color: $color-grey-25
     padding-left: 1px
     margin-bottom: 13px
 
+    +media-breakpoint-up(md)
+      font-size: 18px
+
   &__description
     font-size: 15px
     font-weight: 300
     padding-left: 1px
-    letter-spacing: .6px
+    letter-spacing: .4px
     line-height: 18px
     color: $color-grey-40
     margin-bottom: 13px
+
+    +media-breakpoint-up(md)
+      font-size: 19px
+      line-height: 22px
 
   &__bottom
     display: flex
     font-size: 13px
     letter-spacing: .5px
+
+    +media-breakpoint-up(md)
+      font-size: 16px
 
   &__date
     font-weight: 300
@@ -89,6 +135,10 @@
       background-color: $color-grey-60
       right: -8px
       top: -1px
+
+      +media-breakpoint-up(md)
+        height: 17px
+        top: unset
 
   &__go-to
     text-decoration: none
