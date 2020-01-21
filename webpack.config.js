@@ -18,15 +18,11 @@ const paths = {
   appHtml: resolveApp('src/index.html'),
   appIndexJs: resolveApp('src/index.tsx'),
   appSrc: resolveApp('src'),
-  appSearchComp: resolveApp('src/components/SearchContainer.tsx'),
-  appHeadlinersComp: resolveApp('src/components/HeadlinersContainer.tsx'),
 }
 
 module.exports = {
   entry: {
     main: paths.appIndexJs,
-    searchContainer: paths.appSearchComp,
-    headlinersContainer: paths.appHeadlinersComp
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js']
