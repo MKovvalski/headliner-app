@@ -3,7 +3,7 @@ export interface SelectOption {
   label: string
 }
 
-export interface DropdownSelect {
+export interface DropdownSelectProps {
   options: SelectOption[],
   defaultValue?: SelectOption,
   onChange?: any,

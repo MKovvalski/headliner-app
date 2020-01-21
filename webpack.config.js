@@ -3,6 +3,7 @@ const fs = require('fs')
 const chalkAnimation = require('chalk-animation')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const appDirectory = fs.realpathSync(process.cwd())
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath)
@@ -16,18 +17,44 @@ const paths = {
   appConfig: resolveApp('config'),
   appHtml: resolveApp('src/index.html'),
   appIndexJs: resolveApp('src/index.tsx'),
-  appSrc: resolveApp('src')
+  appSrc: resolveApp('src'),
+  appSearchComp: resolveApp('src/components/SearchContainer.tsx'),
+  appHeadlinersComp: resolveApp('src/components/HeadlinersContainer.tsx'),
 }
 
 module.exports = {
-  entry: './src/index.tsx',
+  entry: {
+    main: paths.appIndexJs,
+    searchContainer: paths.appSearchComp,
+    headlinersContainer: paths.appHeadlinersComp
+  },
   resolve: {
     extensions: ['.ts', '.tsx', '.js']
   },
   output: {
-    path: path.join(__dirname, '/build'),
-    filename: 'bundle.min.js',
-    publicPath: '/'
+    publicPath: '/',
+    path: paths.appBuild,
+    filename: '[chunkhash]_[name].js',
+  },
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin()
+    ],
+    runtimeChunk: 'single',
+    splitChunks: {
+      chunks: 'all',
+      maxInitialRequests: Infinity,
+      minSize: 0,
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name(module) {
+            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+            return `npm.${packageName.replace('@', '')}`;
+          },
+        },
+      },
+    },
   },
   devtool: 'eval', // fastest mode for development
   devServer: {
@@ -58,12 +85,6 @@ module.exports = {
         test: /\.(sa|sc|c)ss$/,
         include: [path.resolve(paths.appSrc, 'styles')],
         use: ['style-loader', 'css-loader', 'sass-loader']
-      },
-      {
-        test: /\.(js|jsx)$/, // add ts and tsx
-        include: path.resolve(paths.appSrc),
-        exclude: /(node_modules)/,
-        use: ['babel-loader']
       },
     ]
   },

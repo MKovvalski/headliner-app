@@ -1,8 +1,8 @@
 import React from 'react'
 import Select from 'react-select'
-import { DropdownSelect } from './types'
+import { DropdownSelectProps } from './types'
 
-const DropdownSelect: React.FC<DropdownSelect> = ({
+const DropdownSelect: React.FC<DropdownSelectProps> = ({
   options,
   defaultValue,
   onChange,
