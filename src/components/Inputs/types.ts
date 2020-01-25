@@ -12,6 +12,4 @@ export interface DropdownSelectProps {
   isClearable?: boolean,
   isDisabled?: boolean,
   placeholder?: string,
-  className?: string,
-  classNamePrefix?: string
 }

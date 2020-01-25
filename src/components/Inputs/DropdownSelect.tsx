@@ -9,13 +9,11 @@ const DropdownSelect: React.FC<DropdownSelectProps> = ({
   isMulti,
   isClearable,
   isDisabled = false,
-  className,
   placeholder,
   value,
-  classNamePrefix,
 }) => {
   return (
-    <>
+    <div className='select-wrapper'>
       <Select
         value={value}
         options={options}
@@ -25,10 +23,10 @@ const DropdownSelect: React.FC<DropdownSelectProps> = ({
         isClearable={isClearable}
         isDisabled={isDisabled}
         placeholder={placeholder}
-        className={className}
-        classNamePrefix={classNamePrefix}
+        className='default-select'
+        classNamePrefix='default-select'
       />
-    </>
+    </div>
   )
 }
 

@@ -28,9 +28,8 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js']
   },
   output: {
-    publicPath: './',
     path: paths.appBuild,
-    filename: '[chunkhash]_[name].js',
+    filename: '[hash]_[name].js',
   },
   optimization: {
     minimizer: [
@@ -54,6 +53,7 @@ module.exports = {
   },
   devtool: 'eval', // fastest mode for development
   devServer: {
+    contentBase: './src/',
     open: false,
     port: PORT,
     overlay: {
