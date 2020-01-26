@@ -1,8 +1,10 @@
 import React from 'react'
 import { ENTRY_headliner } from '../store/actions/headliners/types'
-// import moment from 'moment'
+import dateFormat from 'dateformat'
 
 interface HeadlinerTile extends ENTRY_headliner {}
+
+const formatDate = (date: string): string => dateFormat(date, 'hh:MM dddd - dd.mm.yyyy')
 
 const HeadlinerTile: React.FC<HeadlinerTile> = ({
   urlToImage,
@@ -47,8 +49,7 @@ const HeadlinerTile: React.FC<HeadlinerTile> = ({
         <div className='headliner__bottom'>
           {publishedAt &&
           <div className='headliner__date'>
-            {publishedAt}
-            {/* {moment(publishedAt).format('HH:mm MMMM DD, YYYY')} */}
+            {formatDate(publishedAt)}
           </div>
           }
           <a
@@ -56,7 +57,7 @@ const HeadlinerTile: React.FC<HeadlinerTile> = ({
             href={url}
             target='_blank'
           >
-            Read article
+            Read the article
           </a>
         </div>
       </div>

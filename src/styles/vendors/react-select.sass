@@ -9,6 +9,10 @@
             border-color: transparent
             border-radius: $radius-common
 
+            &:hover
+                border-color: $color-background-base-12
+                background-color: $color-background-base-12
+
             &--is-focused
                 border-color: $color-background-base-12
                 background-color: $color-background-base-12
@@ -33,14 +37,20 @@
                 color: $color-just-white
 
             &__remove
-                color: $color-new-peach
+                color: $color-text-base
+                border-radius: 0 6px 6px 0
+                transition: .3s all
+
+                &:hover
+                    background-color: $color-new-peach
+                    color: $color-primary-lighter
 
         &__indicator-separator
             display: none
 
         &__dropdown-indicator
             svg
-                color: $color-new-base-blue
+                color: $color-new-peach
 
         &__menu
             color: $color-text-base
