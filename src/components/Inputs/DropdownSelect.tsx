@@ -11,6 +11,7 @@ const DropdownSelect: React.FC<DropdownSelectProps> = ({
   isDisabled = false,
   placeholder,
   value,
+  menuIsOpen
 }) => {
   return (
     <div className='select-wrapper'>
@@ -25,6 +26,7 @@ const DropdownSelect: React.FC<DropdownSelectProps> = ({
         placeholder={placeholder}
         className='default-select'
         classNamePrefix='default-select'
+        menuIsOpen={menuIsOpen}
       />
     </div>
   )

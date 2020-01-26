@@ -5,13 +5,13 @@
         letter-spacing: .5px
 
         &__control
-            background-color: rgba(#f1f1f1, 0.08)
+            background-color: $color-background-base
             border-color: transparent
-            border-radius: 20px
+            border-radius: $radius-common
 
             &--is-focused
-                border-color: rgba(#f1f1f1, 0.12)
-                background-color: rgba(#f1f1f1, 0.12)
+                border-color: $color-background-base-12
+                background-color: $color-background-base-12
                 outline: none
                 box-shadow: none
 
@@ -23,6 +23,18 @@
             color: $color-text-base
             overflow: unset
 
+        &__multi-value
+            height: 28px
+            border-radius: 8px
+            background-color: $color-background-base
+
+            &__label
+                line-height: 21px
+                color: $color-just-white
+
+            &__remove
+                color: $color-new-peach
+
         &__indicator-separator
             display: none
 
@@ -32,9 +44,9 @@
 
         &__menu
             color: $color-text-base
-            background-color: #333333
-            border: 1px solid rgba(#f1f1f1, 0.12)
-            border-radius: 20px
+            background-color: $color-primary-lighter
+            border: 1px solid $color-background-base-12
+            border-radius: $radius-common
             overflow: hidden
 
         &__menu-list
@@ -43,7 +55,7 @@
 
         &__option
             &--is-focused
-                background-color: rgba(#f1f1f1, 0.12)
+                background-color: $color-background-base-12
 
             &--is-selected
                 background-color: $color-new-base-blue

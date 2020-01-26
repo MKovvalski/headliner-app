@@ -40,8 +40,6 @@ const SearchParameters: React.FC = () => {
           value={category}
           options={CATEGORIES_ARRAY}
           onChange={setCategory}
-          className='params-select'
-          classNamePrefix='params-select'
         />
       </div>
       <div className='search-params__select-wrapper'>
@@ -49,8 +47,6 @@ const SearchParameters: React.FC = () => {
           value={language}
           options={LANGUAGES_ARRAY}
           onChange={setLanguage}
-          className='params-select'
-          classNamePrefix='params-select'
         />
       </div>
       <div className='search-params__select-wrapper'>
@@ -58,8 +54,6 @@ const SearchParameters: React.FC = () => {
           value={country}
           options={COUNTRIES_ARRAY}
           onChange={setCountry}
-          className='params-select'
-          classNamePrefix='params-select'
         />
       </div>
       <button

@@ -5,10 +5,12 @@ import SearchContainer from './SearchContainer'
 
 const App: React.FC = () => {
   return (
-    <Layout>
-      <SearchContainer />
-      <HeadlinersContainer />
-    </Layout>
+    <div className='app'>
+      <Layout>
+        <SearchContainer />
+        <HeadlinersContainer />
+      </Layout>
+    </div>
   )
 }
 
