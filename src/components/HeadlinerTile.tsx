@@ -28,9 +28,14 @@ const HeadlinerTile: React.FC<HeadlinerTile> = ({
       </div>
       <div className='headliner__content-wrapper'>
         <div>
-          <div className='headliner__title'>
-            {title}
-          </div>
+        <a
+            href={url}
+            target='_blank'
+          >
+            <div className='headliner__title'>
+              {title}
+            </div>
+          </a>
           <div className='headliner__source'>
             {source}
           </div>
