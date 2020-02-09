@@ -4,7 +4,7 @@ import dateFormat from 'dateformat'
 
 interface HeadlinerTile extends ENTRY_headliner {}
 
-const formatDate = (date: string): string => dateFormat(date, 'hh:MM dddd - dd.mm.yyyy')
+const formatDate = (date: string): string => dateFormat(date, 'hh:MM - dd.mm.yyyy')
 
 const HeadlinerTile: React.FC<HeadlinerTile> = ({
   urlToImage,
@@ -52,13 +52,13 @@ const HeadlinerTile: React.FC<HeadlinerTile> = ({
             {formatDate(publishedAt)}
           </div>
           }
-          <a
+          {/* <a
             className='headliner__go-to'
             href={url}
             target='_blank'
           >
             Read the article
-          </a>
+          </a> */}
         </div>
       </div>
     </div>
