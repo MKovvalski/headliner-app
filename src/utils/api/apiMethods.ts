@@ -3,7 +3,8 @@ import { ENTRY_HeadlinesResponseSuccess, ENTRY_SourcesResponseSuccess, RequestBu
 import { ENTRY_headliners } from '../../store/actions/headliners/types'
 
 import { HEADLINER_STATUSES } from '../../store/actions/consts'
-import { API_KEY, API_URL } from '../../../config'
+import { API_URL } from './consts'
+import { API_KEY } from '../../../config'
 import { ENTRY_Sources } from '../../store/actions/sources/types'
 
 export const buildRequest = ({
