@@ -4,6 +4,10 @@ import {
   CountriesInterface
 } from './types'
 
+export const API_URL: string = 'https://newsapi.org/v2/'
+export const HEADLINES_URL: string = '/top-headlines'
+export const SOURCES_URL: string = '/sources'
+
 export const CATEGORIES_ARRAY: CategoriesInterface[] = [
   { label: 'Business', value: 'business' },
   { label: 'Entertainment', value: 'entertainment' },
