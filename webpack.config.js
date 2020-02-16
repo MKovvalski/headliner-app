@@ -3,7 +3,8 @@ const fs = require('fs')
 const chalkAnimation = require('chalk-animation')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin');
 
 const appDirectory = fs.realpathSync(process.cwd())
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath)
@@ -17,7 +18,7 @@ const paths = {
   appConfig: resolveApp('config'),
   appHtml: resolveApp('src/index.html'),
   appIndexJs: resolveApp('src/index.tsx'),
-  appSrc: resolveApp('src'),
+  appSrc: resolveApp('src')
 }
 
 module.exports = {
@@ -25,7 +26,7 @@ module.exports = {
     main: paths.appIndexJs,
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js']
+    extensions: ['.ts', '.tsx', '.js'],
   },
   output: {
     path: paths.appBuild,
@@ -87,6 +88,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html'
-    })
+    }),
+    new CopyPlugin([
+      { from: paths.appAssets, to: 'assets' }
+    ])
   ],
 }
