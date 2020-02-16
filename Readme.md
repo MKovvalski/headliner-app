@@ -8,7 +8,8 @@ The headliners app is a pet project of mine which I started to make my daily pre
     1. [User handbook](#howto)
     2. [Technologies](#tech)
 2. [Getting Started](#start)
-3. [Project road map](#planned)
+3. [Project road map](#roadmap)
+4. [Contact](#contact)
 
 <a name="about"></a>
 ## About the project
@@ -31,6 +32,7 @@ Below are listed all major technologies that have been used to develop this appl
 - [Sass](https://sass-lang.com/) - styling
 - [Webpack](https://webpack.js.org/) - bundling and development process
 
+<a name="start"></a>
 # Getting started
 There are few things that need to be done in order to be able to deveop the project locally. Below is the list of them.
 
@@ -56,7 +58,7 @@ yarn start:dev
 ```
 yarn start:prod
 ```
-
+<a name="roadmap"></a>
 # Project Road Map
 Currently, the project is at the brink of beginning the **Stage 2**
 
@@ -80,6 +82,7 @@ Currently, the project is at the brink of beginning the **Stage 2**
 - create backend structure for personal accounts
 - update styling
 
+<a name="contact"></a>
 # Contact
 If you wish to contact me, visit my linkedin or write me an email
 
