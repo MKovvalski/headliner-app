@@ -1,7 +1,9 @@
-import { ENTRY_UIState, OUTPUT_UIState } from "./types";
+import { IEntryUIState, IOutputUIState } from "./types";
 import { SET_LOADING_STATE } from "../consts";
 
-export const setUIState = (payload: ENTRY_UIState): OUTPUT_UIState => ({
+const setUIState = (payload: IEntryUIState): IOutputUIState => ({
     type: SET_LOADING_STATE,
     payload,
 });
+
+export default setUIState;

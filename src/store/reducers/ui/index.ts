@@ -1,20 +1,20 @@
-import { ENTRY_UIStore } from "../types";
-import { OUTPUT_UIState } from "../../actions/ui/types";
+import { IEntryUIStore } from "../types";
+import { IOutputUIState } from "../../actions/ui/types";
 import { LOADING_STATUSES, SET_LOADING_STATE } from "../../actions/consts";
 
-const INITIAL_STATE: ENTRY_UIStore = {
+const INITIAL_STATE: IEntryUIStore = {
     loadingHeadliners: LOADING_STATUSES.initial,
     loadingSources: LOADING_STATUSES.initial,
     pageCount: 1,
 };
 
-const ui = (state: ENTRY_UIStore = INITIAL_STATE, { type, payload }: OUTPUT_UIState): ENTRY_UIStore => {
+const ui = (state: IEntryUIStore = INITIAL_STATE, { type, payload }: IOutputUIState): IEntryUIStore => {
     switch (type) {
         case SET_LOADING_STATE:
             return Object.assign(state, payload);
+        default:
+            return state;
     }
-
-    return state;
 };
 
 export default ui;

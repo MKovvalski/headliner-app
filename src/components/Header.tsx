@@ -1,6 +1,6 @@
 import React from "react";
-import Navigation from "../components/Nav";
-import Logo from "../components/Logo";
+import Navigation from "./Nav";
+import Logo from "./Logo";
 
 const Header: React.FC = () => {
     return (

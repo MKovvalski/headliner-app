@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../components/Logo";
+import Logo from "./Logo";
 
 interface IFooterSection {
     title: string;
@@ -31,17 +31,23 @@ const Footer: React.FC = () => {
                         <a
                             className="footer__link"
                             target="_blank"
+                            rel="noreferrer"
                             href="https://www.linkedin.com/in/mateusz-kowalski-62b758113/"
                         >
                             Linkedin
                         </a>
-                        <a className="footer__link" target="_blank" href="https://github.com/MKovvalski">
+                        <a
+                            className="footer__link"
+                            target="_blank"
+                            rel="noreferrer"
+                            href="https://github.com/MKovvalski"
+                        >
                             Github
                         </a>
                     </div>
                 </FooterSection>
                 <FooterSection title="Data sources">
-                    <a className="footer__link" target="_blank" href="https://newsapi.org">
+                    <a className="footer__link" target="_blank" rel="noreferrer" href="https://newsapi.org">
                         News API
                     </a>
                 </FooterSection>

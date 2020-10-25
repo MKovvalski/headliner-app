@@ -1,15 +1,15 @@
 import produce from "immer";
 
-import { ENTRY_toReadsStore } from "../types";
-import { ENTRY_headliner } from "../../actions/headliners/types";
-import { ENTRY_modifyHeadliner, ENTRY_removeHeadliner } from "../../actions/toReads/types";
+import { IEntryToReadsStore } from "../types";
+import { IEntryHeadliner } from "../../actions/headliners/types";
+import { IEntryModifyHeadliner, IEntryRemoveHeadliner } from "../../actions/toReads/types";
 import { HEADLINER_STATUSES } from "../../actions/consts";
 
-export const addHeadliner = (state: ENTRY_toReadsStore, payload: ENTRY_headliner): ENTRY_toReadsStore => {
+export const addHeadliner = (state: IEntryToReadsStore, payload: IEntryHeadliner): IEntryToReadsStore => {
     return produce(state, ({ toReads, totalResults, ...rest }) => {
         const newResultsLength = toReads.unshift(payload);
         return {
-            toReads: toReads,
+            toReads,
             totalResults: newResultsLength,
             ...rest,
         };
@@ -17,21 +17,23 @@ export const addHeadliner = (state: ENTRY_toReadsStore, payload: ENTRY_headliner
 };
 
 export const modifyHeadlinerStatus = (
-    state: ENTRY_toReadsStore,
-    payload: ENTRY_modifyHeadliner,
-): ENTRY_toReadsStore => {
+    state: IEntryToReadsStore,
+    payload: IEntryModifyHeadliner,
+): IEntryToReadsStore => {
     return produce(state, ({ toReads, beenReads, toDeletes, ...rest }) => {
         toReads.forEach((headliner) => {
-            if (headliner.title == payload.title) {
+            if (headliner.title === payload.title) {
+                // eslint-disable-next-line no-param-reassign
                 headliner.status = payload.status;
 
-                switch (payload.status) {
-                    case HEADLINER_STATUSES.beenRead:
-                        beenReads = beenReads + 1;
-                        break;
-                    case HEADLINER_STATUSES.toDelete:
-                        toDeletes = toDeletes + 1;
-                        break;
+                if (payload.status === HEADLINER_STATUSES.beenRead) {
+                    // eslint-disable-next-line no-param-reassign
+                    beenReads += 1;
+                }
+
+                if (payload.status === HEADLINER_STATUSES.toDelete) {
+                    // eslint-disable-next-line no-param-reassign
+                    toDeletes += 1;
                 }
             }
         });
@@ -46,23 +48,26 @@ export const modifyHeadlinerStatus = (
 };
 
 export const removeHeadlinerFromList = (
-    state: ENTRY_toReadsStore,
-    payload: ENTRY_removeHeadliner,
-): ENTRY_toReadsStore => {
+    state: IEntryToReadsStore,
+    payload: IEntryRemoveHeadliner,
+): IEntryToReadsStore => {
     return produce(state, ({ toReads, totalResults, toDeletes, beenReads, ...rest }) => {
         const index = toReads.findIndex(({ title }) => title === payload.title);
         const headliner = toReads[index];
 
-        switch (headliner.status) {
-            case HEADLINER_STATUSES.toRead:
-                totalResults = totalResults - 1;
-                break;
-            case HEADLINER_STATUSES.beenRead:
-                beenReads = beenReads - 1;
-                break;
-            case HEADLINER_STATUSES.toDelete:
-                toDeletes = toDeletes - 1;
-                break;
+        if (headliner.status === HEADLINER_STATUSES.toRead) {
+            // eslint-disable-next-line no-param-reassign
+            totalResults -= 1;
+        }
+
+        if (headliner.status === HEADLINER_STATUSES.beenRead) {
+            // eslint-disable-next-line no-param-reassign
+            beenReads -= 1;
+        }
+
+        if (headliner.status === HEADLINER_STATUSES.toDelete) {
+            // eslint-disable-next-line no-param-reassign
+            toDeletes -= 1;
         }
 
         if (index !== -1) {

@@ -1,32 +1,35 @@
-import { ENTRY_sourcesStore } from "../types";
-import { OUTPUT_DefaultAction } from "../../actions/sources/types";
+import { IEntrySourcesStore } from "../types";
+import { IOutputDefaultAction } from "../../actions/sources/types";
 import { SET_CHOSEN_SOURCES, SET_SOURCES } from "../../actions/consts";
 
-const INITIAL_STATE: ENTRY_sourcesStore = {
+const INITIAL_STATE: IEntrySourcesStore = {
     sources: [],
     chosenSources: [],
 };
 
 const sources = (
-    state: ENTRY_sourcesStore = INITIAL_STATE,
-    { type, payload }: OUTPUT_DefaultAction,
-): ENTRY_sourcesStore => {
+    state: IEntrySourcesStore = INITIAL_STATE,
+    { type, payload }: IOutputDefaultAction,
+): IEntrySourcesStore => {
     switch (type) {
-        case SET_SOURCES:
-            const { sources, ...rest } = state;
+        case SET_SOURCES: {
+            const { sources: sourcesList, ...rest } = state;
             return {
                 sources: payload.sources,
                 ...rest,
             };
+        }
 
-        case SET_CHOSEN_SOURCES:
-            const { chosenSources, ...other } = state;
+        case SET_CHOSEN_SOURCES: {
+            const { chosenSources: chosenSourcesList, ...other } = state;
             return {
                 chosenSources: payload.chosenSources,
                 ...other,
             };
+        }
+        default:
+            return state;
     }
-    return state;
 };
 
 export default sources;

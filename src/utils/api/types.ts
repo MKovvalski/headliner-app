@@ -71,7 +71,7 @@ export interface RequestBuilder {
     params: SourcesParams | HeadlinersParams;
 }
 
-export interface ENTRY_UnprocessedHeadliner {
+export interface IEntryUnprocessedHeadliner {
     title: string;
     status: StatusRange;
     source: {
@@ -86,20 +86,20 @@ export interface ENTRY_UnprocessedHeadliner {
     content?: string;
 }
 
-export interface ENTRY_UnprocessedSource {
+export interface IEntryUnprocessedSource {
     id: string;
     name: string;
 }
 
-export interface ENTRY_RawResponse {
+export interface IEntryRawResponse {
     status: ResponseStatusRange;
 }
 
-export interface ENTRY_HeadlinesResponseSuccess extends ENTRY_RawResponse {
+export interface IEntryHeadlinesResponseSuccess extends IEntryRawResponse {
     totalResults: number;
-    articles: ENTRY_UnprocessedHeadliner[];
+    articles: IEntryUnprocessedHeadliner[];
 }
 
-export interface ENTRY_SourcesResponseSuccess extends ENTRY_RawResponse {
-    sources: ENTRY_UnprocessedSource[];
+export interface IEntrySourcesResponseSuccess extends IEntryRawResponse {
+    sources: IEntryUnprocessedSource[];
 }

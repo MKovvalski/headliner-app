@@ -1,16 +1,15 @@
-import React from "react";
-import { ENTRY_headliner } from "../store/actions/headliners/types";
 import dateFormat from "dateformat";
+import React from "react";
+import { IEntryHeadliner } from "../store/actions/headliners/types";
 
-interface HeadlinerTile extends ENTRY_headliner {}
+interface IHeadlinerTile extends IEntryHeadliner {}
 
 const formatDate = (date: string): string => dateFormat(date, "hh:MM - dd.mm.yyyy");
 
-const HeadlinerTile: React.FC<HeadlinerTile> = ({
+const HeadlinerTile: React.FC<IHeadlinerTile> = ({
     urlToImage,
     title,
     source,
-    author,
     description,
     url,
     publishedAt,
@@ -26,7 +25,7 @@ const HeadlinerTile: React.FC<HeadlinerTile> = ({
             </div>
             <div className="headliner__content-wrapper">
                 <div>
-                    <a href={url} target="_blank">
+                    <a href={url} target="_blank" rel="noreferrer">
                         <div className="headliner__title">{title}</div>
                     </a>
                     <div className="headliner__source">{source}</div>

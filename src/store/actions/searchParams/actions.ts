@@ -1,8 +1,10 @@
 import { SourcesParams } from "../../../utils/api/types";
-import { OUTPUT_SearchParams } from "./types";
+import IOutputSearchParams from "./types";
 import { SET_PARAMETERS } from "../consts";
 
-export const setSearchParams = (payload: SourcesParams): OUTPUT_SearchParams => ({
+const setSearchParams = (payload: SourcesParams): IOutputSearchParams => ({
     type: SET_PARAMETERS,
     payload,
 });
+
+export default setSearchParams;

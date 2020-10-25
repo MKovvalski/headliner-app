@@ -1,40 +1,41 @@
-import { ENTRY_headliner, StatusRange } from "../headliners/types";
+import { IEntryHeadliner, StatusRange } from "../headliners/types";
 
 // entries
-export interface ENTRY_toReads {
+export interface IEntryToReads {
     totalResults: number;
     beenReads: string;
     toDeletes: string;
-    toReads: ENTRY_headliner[] | null;
+    toReads: IEntryHeadliner[];
 }
 
-export interface ENTRY_modifyHeadliner {
+export interface IEntryModifyHeadliner {
     status: StatusRange;
     title: string;
 }
 
-export interface ENTRY_removeHeadliner {
+export interface IEntryRemoveHeadliner {
     title: string;
 }
 
 // Action Outputs
-export interface OUTPUT_DefaultAction {
+export interface IOutputDefaultAction {
     type: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     payload: any;
 }
 
-export interface OUTPUT_getToReads extends OUTPUT_DefaultAction {
-    payload: ENTRY_toReads;
+export interface IOutputGetToReads extends IOutputDefaultAction {
+    payload: IEntryToReads;
 }
 
-export interface OUTPUT_addHeadliner extends OUTPUT_DefaultAction {
-    payload: ENTRY_headliner;
+export interface IOutputAddHeadliner extends IOutputDefaultAction {
+    payload: IEntryHeadliner;
 }
 
-export interface OUTPUT_removeHeadliner extends OUTPUT_DefaultAction {
-    payload: ENTRY_removeHeadliner;
+export interface IOutputRemoveHeadliner extends IOutputDefaultAction {
+    payload: IEntryRemoveHeadliner;
 }
 
-export interface OUTPUT_modifyHeadliner extends OUTPUT_DefaultAction {
-    payload: ENTRY_modifyHeadliner;
+export interface IOutputModifyHeadliner extends IOutputDefaultAction {
+    payload: IEntryModifyHeadliner;
 }

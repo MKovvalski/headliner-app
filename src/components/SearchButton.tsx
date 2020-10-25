@@ -2,21 +2,23 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootStore } from "../store/types";
 import useHeadlinersRequest, { OperationType } from "../hooks/useHeadlinersRequest";
-import { ENTRY_Source } from "../store/actions/sources/types";
+import { IEntrySource } from "../store/actions/sources/types";
 import { LOADING_STATUSES } from "../store/actions/consts";
-import { loadingStateRange } from "../store/actions/ui/types";
+import { TLoadingStateRange } from "../store/actions/ui/types";
 
 const SearchButton: React.FC = () => {
     const { status, triggerRequest } = useHeadlinersRequest();
-    const sources: ENTRY_Source[] = useSelector(({ sources }: RootStore) => sources.sources);
-    const chosenSources: ENTRY_Source[] = useSelector(({ sources }: RootStore) => sources.chosenSources);
-    const loadingSources: loadingStateRange = useSelector(({ ui }: RootStore) => ui.loadingSources);
-    const loadingHeadliners: loadingStateRange = useSelector(({ ui }: RootStore) => ui.loadingHeadliners);
+    const sourcesList: IEntrySource[] = useSelector(({ sources }: RootStore) => sources.sources);
+    const chosenSources: IEntrySource[] = useSelector(({ sources }: RootStore) => sources.chosenSources);
+    const loadingSources: TLoadingStateRange = useSelector(({ ui }: RootStore) => ui.loadingSources);
+    const loadingHeadliners: TLoadingStateRange = useSelector(({ ui }: RootStore) => ui.loadingHeadliners);
     const [disabledStatus, setDisabilityStatus] = useState<boolean>(true);
 
     useEffect(() => {
-        disabledStatus && setDisabilityStatus(false);
-    }, [sources, chosenSources]);
+        if (disabledStatus) {
+            setDisabilityStatus(false);
+        }
+    }, [sourcesList, chosenSources]);
 
     useEffect(() => {
         const shouldRequestInitialHeadliners =
@@ -27,7 +29,7 @@ const SearchButton: React.FC = () => {
         }
     }, [loadingSources]);
 
-    const hasNoSources = sources.length === 0;
+    const hasNoSources = sourcesList.length === 0;
 
     return (
         <div className="search-button">

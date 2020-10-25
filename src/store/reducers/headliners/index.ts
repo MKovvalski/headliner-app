@@ -1,17 +1,17 @@
 import { GET_HEADLINERS, APPEND_HEADLINERS, REFRESH_HEADLINERS } from "../../actions/consts";
-import { OUTPUT_headliners } from "../../actions/headliners/types";
-import { ENTRY_headlinersStore } from "../types";
-import { appendHeadliners } from "./reducerMethods";
+import { IOutputHeadliners } from "../../actions/headliners/types";
+import { IEntryHeadlinersStore } from "../types";
+import appendHeadliners from "./reducerMethods";
 
-const INITIAL_STATE: ENTRY_headlinersStore = {
+const INITIAL_STATE: IEntryHeadlinersStore = {
     totalResults: 0,
     headliners: [],
 };
 
 const headliners = (
-    state: ENTRY_headlinersStore = INITIAL_STATE,
-    { type, payload }: OUTPUT_headliners,
-): ENTRY_headlinersStore => {
+    state: IEntryHeadlinersStore = INITIAL_STATE,
+    { type, payload }: IOutputHeadliners,
+): IEntryHeadlinersStore => {
     switch (type) {
         case GET_HEADLINERS:
             return payload;
@@ -21,9 +21,10 @@ const headliners = (
 
         case REFRESH_HEADLINERS:
             return INITIAL_STATE;
-    }
 
-    return state;
+        default:
+            return state;
+    }
 };
 
 export default headliners;

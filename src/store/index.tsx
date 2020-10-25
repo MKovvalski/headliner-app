@@ -1,8 +1,6 @@
-import rootReducer from "./reducers";
 import { createStore } from "redux";
+import rootReducer from "./reducers";
 
-export const store = createStore(
-    rootReducer,
-    // @ts-ignore TODO: remove ignore afterwards
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-);
+const store = createStore(rootReducer);
+
+export default store;

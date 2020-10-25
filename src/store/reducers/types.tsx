@@ -1,29 +1,29 @@
-import { ENTRY_headliner } from "../actions/headliners/types";
+import { IEntryHeadliner } from "../actions/headliners/types";
 import { SourcesParams } from "../../utils/api/types";
-import { ENTRY_Source } from "../actions/sources/types";
-import { loadingStateRange } from "../actions/ui/types";
+import { IEntrySource } from "../actions/sources/types";
+import { TLoadingStateRange } from "../actions/ui/types";
 
-export interface ENTRY_headlinersStore {
+export interface IEntryHeadlinersStore {
     totalResults: number;
-    headliners: ENTRY_headliner[] | null;
+    headliners: IEntryHeadliner[];
 }
 
-export interface ENTRY_toReadsStore {
+export interface IEntryToReadsStore {
     totalResults: number;
     beenReads: number;
     toDeletes: number;
-    toReads: ENTRY_headliner[] | null;
+    toReads: IEntryHeadliner[];
 }
 
-export interface ENTRY_sourcesStore {
-    sources: ENTRY_Source[];
-    chosenSources: ENTRY_Source[];
+export interface IEntrySourcesStore {
+    sources: IEntrySource[];
+    chosenSources: IEntrySource[];
 }
 
-export interface ENTRY_searchParamsStore extends SourcesParams {}
+export interface IEntrySearchParamsStore extends SourcesParams {}
 
-export interface ENTRY_UIStore {
-    loadingHeadliners: loadingStateRange;
-    loadingSources: loadingStateRange;
+export interface IEntryUIStore {
+    loadingHeadliners: TLoadingStateRange;
+    loadingSources: TLoadingStateRange;
     pageCount: number;
 }

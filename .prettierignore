@@ -7,6 +7,5 @@ build/
 .vscode
 .tsconfig.json
 .eslintrc.js
-webpack.config.js
 Readme.md
 

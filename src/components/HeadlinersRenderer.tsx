@@ -1,15 +1,17 @@
 import React from "react";
-import { ENTRY_headliner } from "../store/actions/headliners/types";
 import { useSelector } from "react-redux";
-import HeadlinerTile from "./HeadlinerTile";
 import { RootStore } from "../store/types";
+import { IEntryHeadliner } from "../store/actions/headliners/types";
+import HeadlinerTile from "./HeadlinerTile";
 
 const HeadlinersRenderer: React.FC = () => {
-    const headliners: ENTRY_headliner[] = useSelector(({ headliners }: RootStore) => headliners.headliners);
+    const headlinersList: IEntryHeadliner[] = useSelector(
+        ({ headliners }: RootStore) => headliners.headliners,
+    );
 
     return (
         <div className="headliners-renderer">
-            {headliners.map((headliner) => (
+            {headlinersList.map((headliner) => (
                 <HeadlinerTile key={headliner.title} {...headliner} />
             ))}
         </div>
