@@ -1,10 +1,10 @@
 import React from "react";
 
-interface Layout {
+interface ILayout {
     children: React.ReactNode;
 }
 
-const Layout: React.FC<Layout> = ({ children }) => {
+const Layout: React.FC<ILayout> = ({ children }) => {
     return <div className="layout">{children}</div>;
 };
 

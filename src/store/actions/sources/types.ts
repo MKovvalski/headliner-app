@@ -1,27 +1,28 @@
 // entries
-export interface ENTRY_Source {
+export interface IEntrySource {
     label: string;
     value: string;
 }
 
-export interface ENTRY_Sources {
-    sources: ENTRY_Source[];
+export interface IEntrySources {
+    sources: IEntrySource[];
 }
 
-export interface ENTRY_ChosenSources {
-    chosenSources: ENTRY_Source[];
+export interface IEntryChosenSources {
+    chosenSources: IEntrySource[];
 }
 
 // outputs
-export interface OUTPUT_DefaultAction {
+export interface IOutputDefaultAction {
     type: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     payload: any;
 }
 
-export interface OUTPUT_Sources extends OUTPUT_DefaultAction {
-    payload: ENTRY_Sources;
+export interface IOutputSources extends IOutputDefaultAction {
+    payload: IEntrySources;
 }
 
-export interface OUTPUT_ChosenSources extends OUTPUT_DefaultAction {
-    payload: ENTRY_ChosenSources;
+export interface IOutputChosenSources extends IOutputDefaultAction {
+    payload: IEntryChosenSources;
 }

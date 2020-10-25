@@ -1,5 +1,7 @@
 src/registerServiceWorker.js
-node_modules/*
-public/*
-build/*
-config/*
+node_modules/
+public/
+build/
+config/
+
+config.ts

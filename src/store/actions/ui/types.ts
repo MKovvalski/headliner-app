@@ -1,6 +1,6 @@
-export type loadingStateRange = "loading" | "success" | "error" | null;
+export type TLoadingStateRange = "loading" | "success" | "error" | null;
 
-export interface loadingStateObject {
+export interface ILoadingStateObject {
     loading: "loading";
     success: "success";
     error: "error";
@@ -8,13 +8,13 @@ export interface loadingStateObject {
 }
 
 // entries
-export interface ENTRY_UIState {
-    loadingHeadliners?: loadingStateRange;
+export interface IEntryUIState {
+    loadingHeadliners?: TLoadingStateRange;
     pageCount?: number;
-    loadingSources?: loadingStateRange;
+    loadingSources?: TLoadingStateRange;
 }
 
-export interface OUTPUT_UIState {
+export interface IOutputUIState {
     type: string;
-    payload: ENTRY_UIState;
+    payload: IEntryUIState;
 }

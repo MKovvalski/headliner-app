@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setSearchParams } from "../store/actions/searchParams/actions";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import setSearchParams from "../store/actions/searchParams/actions";
 import { CATEGORIES_ARRAY, COUNTRIES_ARRAY, LANGUAGES_ARRAY } from "../utils/api/consts";
 import DropdownSelect from "./Inputs/DropdownSelect";
 import { CategoriesInterface, CountriesInterface, LanguagesInterface } from "../utils/api/types";

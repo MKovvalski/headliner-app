@@ -1,11 +1,14 @@
 import { SourcesParams } from "../../../utils/api/types";
 
 // outputs
-export interface OUTPUT_DefaultAction {
+interface IOutputDefaultAction {
     type: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     payload: any;
 }
 
-export interface OUTPUT_SearchParams extends OUTPUT_DefaultAction {
+interface IOutputSearchParams extends IOutputDefaultAction {
     payload: SourcesParams;
 }
+
+export default IOutputSearchParams;

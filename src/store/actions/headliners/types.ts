@@ -1,7 +1,7 @@
 // entries
 export type StatusRange = 0 | 1 | 2;
 
-export interface ENTRY_headliner {
+export interface IEntryHeadliner {
     title: string;
     status: StatusRange;
     source: string;
@@ -12,19 +12,19 @@ export interface ENTRY_headliner {
     publishedAt: string;
 }
 
-export interface ENTRY_headlinerStatus {
+export interface IEntryHeadlinerStatus {
     toRead: number;
     beenRead: number;
     toDelete: number;
 }
 
-export interface ENTRY_headliners {
+export interface IEntryHeadliners {
     totalResults: number;
-    headliners: ENTRY_headliner[];
+    headliners: IEntryHeadliner[];
 }
 
 // outputs
-export interface OUTPUT_headliners {
+export interface IOutputHeadliners {
     type: string;
-    payload: ENTRY_headliners;
+    payload: IEntryHeadliners;
 }

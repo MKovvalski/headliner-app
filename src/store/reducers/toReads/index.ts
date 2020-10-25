@@ -4,11 +4,11 @@ import {
     CHANGE_HEADLINER_STATUS,
     REMOVE_HEADLINER_FROM_LIST,
 } from "../../actions/consts";
-import { OUTPUT_DefaultAction } from "../../actions/toReads/types";
-import { ENTRY_toReadsStore } from "../types";
+import { IOutputDefaultAction } from "../../actions/toReads/types";
+import { IEntryToReadsStore } from "../types";
 import { addHeadliner, modifyHeadlinerStatus, removeHeadlinerFromList } from "./reducerMethods";
 
-const INITIAL_STATE: ENTRY_toReadsStore = {
+const INITIAL_STATE: IEntryToReadsStore = {
     totalResults: 0,
     beenReads: 0,
     toDeletes: 0,
@@ -16,9 +16,9 @@ const INITIAL_STATE: ENTRY_toReadsStore = {
 };
 
 const toReads = (
-    state: ENTRY_toReadsStore = INITIAL_STATE,
-    { type, payload }: OUTPUT_DefaultAction,
-): ENTRY_toReadsStore => {
+    state: IEntryToReadsStore = INITIAL_STATE,
+    { type, payload }: IOutputDefaultAction,
+): IEntryToReadsStore => {
     switch (type) {
         case GET_TO_READ_LIST:
             return payload;
@@ -31,9 +31,9 @@ const toReads = (
 
         case REMOVE_HEADLINER_FROM_LIST:
             return removeHeadlinerFromList(state, payload);
+        default:
+            return state;
     }
-
-    return state;
 };
 
 export default toReads;
