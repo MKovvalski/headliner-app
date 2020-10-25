@@ -1,0 +1,12 @@
+node_modules/
+public/
+build/
+
+#files
+.idea
+.vscode
+.tsconfig.json
+.eslintrc.js
+webpack.config.js
+Readme.md
+
