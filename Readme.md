@@ -1,7 +1,7 @@
 # The Headliners web app
 The headliners app is a pet project of mine which I started to make my daily press overview a bit easier, better my web development skills and learn typescript. The code of the app is available for anyone to fork and modify, just mention the OG in the footer please, so I can get some internet points :rocket:
 
-![App in the iphone mock](/src/assets/iphone_mock.png "Iphone mock")
+![App in the iphone mock](/readme-assets/iphone_mock.png "Iphone mock")
 
 # Table of contents
 1. [About the project](#about)

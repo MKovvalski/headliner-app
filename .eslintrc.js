@@ -13,12 +13,11 @@ module.exports = {
         "prettier/react",
         "prettier/@typescript-eslint",
     ],
+    parser: "@typescript-eslint/parser",
     parserOptions: {
         ecmaVersion: 2020,
         sourceType: "module",
         project: "./tsconfig.json",
-        parser: "@typescript-eslint/parser",
-        
     },
     settings: {
         react: {

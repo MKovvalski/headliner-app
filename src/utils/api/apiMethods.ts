@@ -1,6 +1,5 @@
 import axios from "axios";
 
-import { HEADLINER_STATUSES } from "../../store/actions/consts";
 import { API_URL } from "./consts";
 import { API_KEY } from "../../../config";
 
@@ -26,7 +25,8 @@ export const formatHeadersResponseData = (
 
     const headliners = articles.map(({ source, content, ...rest }) => {
         return {
-            status: HEADLINER_STATUSES.toRead,
+            // TODO: fix bug where toRead is being overwritten by ...rest spread
+            // status: HEADLINER_STATUSES.toRead,
             source: source.name,
             ...rest,
         };

@@ -10,12 +10,12 @@
     "scripts": {
         "clean": "rm -rf build/*",
         "nuke": "rm -rf build",
-        "start:dev": "webpack-dev-server --mode development --hot",
-        "start:prod": "webpack --mode production; serve build",
+        "start:dev": "webpack-dev-server --mode=development --hot",
+        "start:prod": "webpack --mode=production; serve build",
+        "start:build": "webpack --mode=production",
         "lint": "eslint src -c .eslintrc --ext js,jsx,tsx",
         "sass-lint": "sass-lint -v -q",
         "lint:all": "yarn lint; yarn sass-lint",
-        "test": "jest",
         "deploy": "gh-pages -d build"
     },
     "jest": {
@@ -27,7 +27,7 @@
         ]
     },
     "devDependencies": {
-        "@babel/core": "^7.6.0",
+        "@babel/core": "^7.12.3",
         "@babel/plugin-proposal-export-default-from": "^7.12.1",
         "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
         "@babel/plugin-transform-runtime": "^7.12.1",
@@ -49,6 +49,7 @@
         "babel-preset-react": "^6.24.1",
         "chalk-animation": "^1.6.0",
         "copy-webpack-plugin": "^5.1.1",
+        "core-js": "^3.6.5",
         "css-loader": "^3.2.0",
         "enzyme": "^3.10.0",
         "enzyme-adapter-react-16": "^1.14.0",
@@ -57,6 +58,7 @@
         "eslint-config-standard": "^14.1.0",
         "eslint-config-standard-react": "^9.2.0",
         "eslint-import-resolver-webpack": "^0.11.1",
+        "eslint-loader": "^4.0.2",
         "eslint-plugin-import": "^2.22.1",
         "eslint-plugin-jest": "^22.17.0",
         "eslint-plugin-jsx-a11y": "^6.2.3",
@@ -65,6 +67,7 @@
         "eslint-plugin-react": "^7.21.5",
         "eslint-plugin-standard": "^4.0.1",
         "file-loader": "^4.2.0",
+        "fork-ts-checker-webpack-plugin": "^5.2.0",
         "gh-pages": "^2.2.0",
         "html-loader": "^0.5.5",
         "html-webpack-plugin": "^3.2.0",
@@ -94,7 +97,6 @@
         "eslint-config-airbnb-typescript": "^12.0.0",
         "eslint-config-prettier": "^6.14.0",
         "eslint-config-typescript": "^3.0.0",
-        "eslint-loader": "^4.0.2",
         "eslint-plugin-react-hooks": "^4.2.0",
         "immer": "^5.0.2",
         "prettier": "^2.1.2",
