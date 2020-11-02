@@ -19,7 +19,7 @@ const InformationModal: React.FC = () => {
         }
 
         if (rootTag && bodyTag && !modalOpen) {
-            rootTag.classList.remove("locked-height");
+            rootTag.classList.remove("root-locked-height");
             if (isIOS) {
                 rootTag.classList.remove("root-locked-height--safari");
             }
